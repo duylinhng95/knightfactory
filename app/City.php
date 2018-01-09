@@ -8,8 +8,8 @@ class City extends Model
 {
     protected $table='cities';
 
-    public function course()
+    public function class()
     {
-    	return $this->belongsTo('App\Course','city_id','id');
+    	return $this->belongsTo('App\Class','city_id','id');
     }
 }
