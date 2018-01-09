@@ -14,6 +14,16 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('adsss', function () {
-    return view('admin.master-admin');
+Route::group(['prefix'=>'adss'], function (){
+    Route::get('/',function(){
+    	return view('admin.master-admin');
+    });
+    Route::group(['prefix'=>'speaker'],function(){
+    	Route::get('/','SpeakerController@showSpeakers')->name('speaker');
+		Route::get('/create','SpeakerController@addSpeaker')->name('create-speaker');
+		Route::post('/','SpeakerController@saveSpeaker');
+		Route::get('/{speaker}/edit','SpeakerController@editSpeaker');
+		Route::put('/{speaker}','SpeakerController@updateSpeaker');
+		Route::get('/{speaker}/delete','SpeakerController@deleteSpeaker');
+	});
 });
