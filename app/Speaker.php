@@ -8,13 +8,8 @@ class Speaker extends Model
 {
     protected $table='speakers';
 
-    public function course()
+    public function class()
     {
-    	return $this->belongsTo('App\Course','speaker_id','id');    
+    	return $this->belongsTo('App\Class','speaker_id','id');    
     }
-
-    public function speEvents()
-    {
-    	return $this->hasMany('App\SpeakerEvent','speaker_id','id');
-    }    
 }

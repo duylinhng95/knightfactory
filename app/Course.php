@@ -8,22 +8,13 @@ class Course extends Model
 {
     protected $table='courses';
 
-    public function city()
+    public function classes()
     {
-    	return $this->hasOne('App\City','city_id','id');
+        return $this->hasMany('App\Class','course_id','id');
     }
 
-    public function subject()
+    public function category()
     {
-    	return $this->hasOne('App\Subject','subject_id','id');
-    }
-    public function speaker()
-    {
-    	return $this->hasOne('App\Speaker','speaker_id','id');
-    }
-
-    public function regisCourses()
-    {
-    	return $this->hasMany('App\RegisterCourse','course_id','id');	
+        return $this->belongsTo('App\Category','category_id','id');
     }
 }

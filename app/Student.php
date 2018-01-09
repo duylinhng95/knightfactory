@@ -8,13 +8,8 @@ class Student extends Model
 {
     protected $table='students';
 
-    public function regisCourses()
+    public function student_classes()
     {
-    	return $this->hasMany('App\RegisterCourse','student_id','id');	
-    }
-
-    public function stuEvents()
-    {
-    	return $this->hasMany('App\StudentEvent','student_id','id');
+    	return $this->hasMany('App\StudentClass','student_id','id');
     }
 }
