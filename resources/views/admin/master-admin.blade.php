@@ -53,7 +53,7 @@
 </head>
 
 <body>
-    {!! Toastr::render() !!}
+<!--     {!! Toastr::render() !!} -->
 
     <div id="wrapper">
 
@@ -71,10 +71,10 @@
             <!-- /.navbar-header -->
 
             <ul class="nav navbar-top-links navbar-right">
-                @if(Auth::user())
+<!--                 @if(Auth::user()) -->
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" >
-                                    <p>Hello,{{auth()->user()->username}}</p>
+                                    <!-- <p>Hello,{{auth()->user()->username}}</p> -->
                         </a>
                         <!-- /.dropdown-messages -->
                     </li>
@@ -95,10 +95,10 @@
                         <!-- /.dropdown-user -->
                     </li>
                     <!-- /.dropdown -->
-                @endif
+<!--                 @endif -->
             </ul>
             <!-- /.navbar-top-links -->
-        @if(Auth::user())
+<!--         @if(Auth::user()) -->
             <div class="navbar-default sidebar" role="navigation">
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
@@ -136,8 +136,8 @@
                 <!-- /.sidebar-collapse -->
             </div>
             <!-- /.navbar-static-side -->
-        @endif
-        </nav>
+<!--         @endif
+ -->        </nav>
 
         <div id="page-wrapper">
             @yield('content')
