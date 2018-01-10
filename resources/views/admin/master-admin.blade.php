@@ -53,6 +53,7 @@
 </head>
 
 <body>
+    {!! Toastr::render() !!}
 
     <div id="wrapper">
 
@@ -126,6 +127,7 @@
                             <a href="{{url('administrator/category')}}"><i class="fa fa-list "></i> Categories</a>
                         </li>
                         <li>
+                            <a href="{{ url('administrator/city') }}"><i class="fa fa-map-o"></i> Cities</a>
                             <a href="{{url('administrator/course/')}}"><i class="fa fa-gg"></i> Course</a>
                         </li>
                         <li>
