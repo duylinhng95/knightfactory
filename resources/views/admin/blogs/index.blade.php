@@ -11,7 +11,7 @@
         <div class="col-lg-12">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <a href="{{url('add-blog')}}"class="btn btn-info"><i class="fa fa-plus"></i> Add Blog</a>
+                    <a href="{{url('administrator/blog/add-blog')}}"class="btn btn-info"><i class="fa fa-plus"></i> Add Blog</a>
                 </div>
                 <!-- /.panel-heading -->
                 <div class="panel-body">
@@ -33,8 +33,8 @@
                                     <td style="padding-top: 20px;" ><a href="#">{{$blog->title}}</a></td>
                                     <td><img src="{{asset('admin/images/blog/'.$blog->thumbnail)}}" alt="{{ $blog ->title }}" style="width: 70px; height: 50px;"> </td>
                                     <td style="padding-top: 20px;" >232</td>
-                                    <td  style="padding-top: 20px;" class="center"><a href="{{url('edit-blog')}}/{{$blog->id}}"><span class="glyphicon glyphicon-edit"></span></a> </td>
-                                    <td  style="padding-top: 20px;" class="center"><a href="{{url('delete-blog')}}/{{$blog->id}}" onclick="return confirm('Are you sure ?');"><span class="glyphicon glyphicon-trash"></span></a> </td>
+                                    <td  style="padding-top: 20px;" class="center"><a href="{{url('administrator/blog/edit-blog')}}/{{$blog->id}}"><span class="glyphicon glyphicon-edit"></span></a> </td>
+                                    <td  style="padding-top: 20px;" class="center"><a href="{{url('administrator/blog/delete-blog')}}/{{$blog->id}}" onclick="return confirm('Are you sure ?');"><span class="glyphicon glyphicon-trash"></span></a> </td>
                                 </tr>
                             @endforeach
                         </tbody>

@@ -12,7 +12,7 @@
             <div class="panel panel-default">
                 <div class="panel-body">
                     <div class="row">
-                        <form role="form" action="{{ url('update-blog') }}/{{$blog->id}}" method="post" id="form" enctype="multipart/form-data">
+                        <form role="form" action="{{ url('administrator/blog/update-blog') }}/{{$blog->id}}" method="post" id="form" enctype="multipart/form-data">
                                 {!!csrf_field()!!}
                                 <div class="col-lg-4">
                                     <div class="form-group">

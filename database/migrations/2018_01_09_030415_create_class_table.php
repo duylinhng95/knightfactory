@@ -16,16 +16,17 @@ class CreateClassTable extends Migration
         Schema::create('classes', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
+            $table->string('alias');
             $table->date('start_date');
             $table->date('end_date');
             $table->string('description',300);
-            
+
             $table->integer('speaker_id')->unsigned()->nullable();
             $table->foreign('speaker_id')->references('id')->on('speakers');
-            
+
             $table->integer('course_id')->unsigned()->nullable();
             $table->foreign('course_id')->references('id')->on('courses');
-            
+
             $table->integer('city_id')->unsigned()->nullable();
             $table->foreign('city_id')->references('id')->on('cities');
             $table->timestamps();

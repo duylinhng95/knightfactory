@@ -123,13 +123,28 @@
                             <a href="#"><i class="fa fa-edit fa-fw"></i> Articles</a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-list "></i> Categories</a>
+                            <a href="{{url('administrator/category')}}"><i class="fa fa-list "></i> Categories</a>
                         </li>
                         <li>
                             <a href="#"><i class="fa fa-map-o"></i> Advertisement</a>
                         </li>
                         <li>
-                            <a href="{{route('list-blogs')}}"><i class="fa fa-rss"></i> Blogs</a>
+                            <a href="{{url('administrator/category')}}"><i class="fa fa-sitemap fa-fw"></i> Multi-Level Dropdown<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="#">Second Level Item</a>
+                                </li>
+                                <li>
+                                    <a href="#">Second Level Item</a>
+                                </li>
+                                <li>
+                                    <a href="#">Third Level</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                        <li>
+                            <a href="{{url('administrator/blog/list-blogs')}}"><i class="fa fa-rss"></i> Blogs</a>
                         </li>
                     </ul>
                 </div>
