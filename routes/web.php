@@ -26,10 +26,13 @@ Route::group(['prefix'=>'adss'], function (){
 		Route::put('/{speaker}','SpeakerController@updateSpeaker');
 		Route::get('/{speaker}/delete','SpeakerController@deleteSpeaker');
 	});
+	Route::group(['prefix'=>'category'],function(){
+		Route::get('/', 'CategoryController@listCategory');
+		Route::get('/add', 'CategoryController@getAddCategory');
+		Route::post('/add', 'CategoryController@postAddCategory');
+		Route::get('/edit/{category}', 'CategoryController@getEditCategory');
+		Route::put('/edit/{category}', 'CategoryController@putEditCategory');
+		Route::get('/delete/{category}', 'CategoryController@deleteCategory');
+	});
 });
-Route::get('administrator/category', 'CategoryController@listCategory');
-Route::get('administrator/category/add', 'CategoryController@getAddCategory');
-Route::post('administrator/category/add', 'CategoryController@postAddCategory');
-Route::get('administrator/category/edit/{category}', 'CategoryController@getEditCategory');
-Route::put('administrator/category/edit/{category}', 'CategoryController@putEditCategory');
-Route::get('administrator/category/delete/{category}', 'CategoryController@deleteCategory');
+
