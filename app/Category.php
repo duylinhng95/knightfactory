@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Category extends Model
 {
-    protected $table='categories';
+    protected $fillable = ['name', 'alias'];
 
     public function courses()
     {
@@ -15,6 +15,6 @@ class Category extends Model
 
     public function classes()
     {
-    	return $this-.hasManyThrough('App\Class','App\Course','category_id','course_id','id','id');
-    }    
+    	return $this->hasManyThrough('App\Class','App\Course','category_id','course_id','id');
+    }
 }
