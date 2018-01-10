@@ -127,7 +127,7 @@
                             <a href="{{url('administrator/category')}}"><i class="fa fa-list "></i> Categories</a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-map-o"></i> Advertisement</a>
+                            <a href="{{ url('administrator/city') }}"><i class="fa fa-map-o"></i> Cities</a>
                         </li>
                         <li>
                             <a href="{{url('administrator/category')}}"><i class="fa fa-sitemap fa-fw"></i> Multi-Level Dropdown<span class="fa arrow"></span></a>

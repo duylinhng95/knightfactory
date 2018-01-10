@@ -39,3 +39,10 @@ Route::group(['prefix'=>'administrator'], function (){
         Route::get('delete-blog/{id}', 'BlogController@destroy');
     });
 });
+
+Route::get('administrator/city', 'CityController@listCity');
+Route::get('administrator/city/add', 'CityController@getAddCity');
+Route::post('administrator/city/add', 'CityController@postAddCity');
+Route::get('administrator/city/edit/{city}', 'CityController@getEditCity');
+Route::put('administrator/city/edit/{city}', 'CityController@putEditCity');
+Route::get('administrator/city/delete/{city}', 'CityController@deleteCity');
