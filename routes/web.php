@@ -11,10 +11,7 @@
 |
 */
 
-Route::get('administrator', function () {
-    return view('admin.master-admin');
-});
-Route::group(['prefix'=>'adss'], function (){
+Route::group(['prefix'=>'administrator'], function (){
     Route::get('/',function(){
     	return view('admin.master-admin');
     });
@@ -34,5 +31,12 @@ Route::group(['prefix'=>'adss'], function (){
 		Route::put('/edit/{category}', 'CategoryController@putEditCategory');
 		Route::get('/delete/{category}', 'CategoryController@deleteCategory');
 	});
+    Route::group(['prefix'=>'blog'],function(){
+        Route::get('list-blogs', 'BlogController@index')->name('list-blogs');
+        Route::get('add-blog', 'BlogController@create');
+        Route::post('save-blog', 'BlogController@store');
+        Route::get('edit-blog/{id}', 'BlogController@edit');
+        Route::post('update-blog/{id}', 'BlogController@update');
+        Route::get('delete-blog/{id}', 'BlogController@destroy');
+    });
 });
-
