@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use App\Speaker;
 use App\Http\Requests\SpeakerRequest;
+use Toastr;
 
 class SpeakerController extends Controller
 {
@@ -31,7 +32,8 @@ class SpeakerController extends Controller
     	$data['avatar']=$images;
 
     	$speaker=Speaker::create($data);
-    	return redirect('adss/speaker')->withSuccess('Speaker has been created');
+         Toastr::success('Add successful Speaker', $title = null, $options = []);
+    	return redirect('administrator/speaker');
     }
     public function editSpeaker(Speaker $speaker)
     {
@@ -42,6 +44,8 @@ class SpeakerController extends Controller
     	$data=Input::all();
     	if ($request->hasFile('avatar'))
 		{
+            $oldfile=public_path('admin/images/speaker/avatar/').$speaker->avatar;            
+            unlink($oldfile);
 			$file=$request->file('avatar');
 	    	$filename=$file->getClientOriginalName('avatar');
 	    	$request->file=$filename;
@@ -51,11 +55,14 @@ class SpeakerController extends Controller
 	    	$data['avatar']=$images;
 		}    		    	
     	$speaker->update($data);
-    	return redirect('adss/speaker')->withSuccess($speaker->name.'has been updated');
+         Toastr::success('Edit successful Speaker', $title = null, $options = []);
+    	return redirect('administrator/speaker');
     }
     public function deleteSpeaker(Speaker $speaker)
     {
+        $oldfile=public_path('admin/images/speaker/avatar/').$speaker->avatar;            
+        unlink($oldfile);
     	$speaker->delete();
-    	return redirect('adss/speaker')->withSuccess('Speaker has been deleted');
+    	return redirect('administrator/speaker');
     }
 }

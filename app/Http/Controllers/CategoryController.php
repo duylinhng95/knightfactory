@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use App\Category;
+use Toastr;
 
 class CategoryController extends Controller
 {
@@ -28,6 +29,7 @@ class CategoryController extends Controller
         $data = Input::All();
         $data['alias'] = str_slug($data['name']);
         $category = Category::create($data);
+         Toastr::success('Add successful Category', $title = null, $options = []);
         return redirect('administrator/category');
     }
 
@@ -48,12 +50,14 @@ class CategoryController extends Controller
         $data = input::All();
         $data['alias'] = str_slug($data['name']);
         $category ->update($data);
+         Toastr::success('Edit successful Category', $title = null, $options = []);
         return redirect('administrator/category');
     }
 
     public function deleteCategory(Category $category)
     {
         $category->delete();
+         Toastr::success('Delete successful Category', $title = null, $options = []);
         return redirect('administrator/category');
     }
 
