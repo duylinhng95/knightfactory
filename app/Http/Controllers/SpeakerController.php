@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use App\Speaker;
+use App\Http\Requests\SpeakerRequest;
 
 class SpeakerController extends Controller
 {
@@ -17,7 +18,7 @@ class SpeakerController extends Controller
     {
     	return view('admin.speaker.create');
     }
-    public function saveSpeaker(Request $request)
+    public function saveSpeaker(SpeakerRequest $request)
     {
     	$data=Input::except('avatar');
     	
