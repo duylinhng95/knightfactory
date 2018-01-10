@@ -128,6 +128,9 @@
                         <li>
                             <a href="#"><i class="fa fa-map-o"></i> Advertisement</a>
                         </li>
+                        <li>
+                            <a href="{{route('list-blogs')}}"><i class="fa fa-rss"></i> Blogs</a>
+                        </li>
                     </ul>
                 </div>
                 <!-- /.sidebar-collapse -->
