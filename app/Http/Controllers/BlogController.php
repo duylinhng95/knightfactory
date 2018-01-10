@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Blog;
 use Illuminate\Support\Facades\Storage;
+use Toastr;
 
 class BlogController extends Controller
 {
@@ -69,7 +70,7 @@ class BlogController extends Controller
 
             }
             $addBlog ->save();
-            // Toastr::success('Add successful Article', $title = null, $options = []);
+            Toastr::success('Add successful Article', $title = null, $options = []);
             return redirect()->route('list-blogs');
         }
     /**
@@ -133,7 +134,7 @@ class BlogController extends Controller
             $editBlog['thumbnail'] = $images;
         }
         $editBlog ->update();
-        // Toastr::success('Edit successful Article', $title = null, $options = []);
+        Toastr::success('Edit successful Article', $title = null, $options = []);
         return redirect()->route('list-blogs');
     }
 

@@ -53,6 +53,7 @@
 </head>
 
 <body>
+    {!! Toastr::render() !!}
 
     <div id="wrapper">
 
