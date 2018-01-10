@@ -30,6 +30,13 @@ Route::group(['prefix'=>'adss'], function (){
 Route::get('administrator/category', 'CategoryController@listCategory');
 Route::get('administrator/category/add', 'CategoryController@getAddCategory');
 Route::post('administrator/category/add', 'CategoryController@postAddCategory');
-Route::get('administrator/category/edit/{category}', 'CategoryController@getEditCategory');
-Route::put('administrator/category/edit/{category}', 'CategoryController@putEditCategory');
+Route::get('administrator/category/edit/{category}', 'CategoryController@getEditCategory')->name('edit-category');
+Route::put('administrator/category/edit/{category}', 'CategoryController@putEditCategory')->name('edit-category');
 Route::get('administrator/category/delete/{category}', 'CategoryController@deleteCategory');
+
+Route::get('administrator/city', 'CityController@listCity');
+Route::get('administrator/city/add', 'CityController@getAddCity');
+Route::post('administrator/city/add', 'CityController@postAddCity');
+Route::get('administrator/city/edit/{city}', 'CityController@getEditCity');
+Route::put('administrator/city/edit/{city}', 'CityController@putEditCity');
+Route::get('administrator/city/delete/{city}', 'CityController@deleteCity');

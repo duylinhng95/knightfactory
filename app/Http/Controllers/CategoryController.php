@@ -18,9 +18,14 @@ class CategoryController extends Controller
         return view('admin.category.add');
     }
 
-    public function postAddCategory()
+    public function postAddCategory(Request $rq)
     {
-        $data = input::All();
+        $this->validate($rq,
+        [
+            'name' => 'required|unique:categories',
+        ]
+        );
+        $data = Input::All();
         $data['alias'] = str_slug($data['name']);
         $category = Category::create($data);
         return redirect('administrator/category');
@@ -31,17 +36,25 @@ class CategoryController extends Controller
         return view('admin.category.edit', compact('category'));
     }
 
-    public function putEditCategory(Category $category)
+    public function putEditCategory(Category $category, Request $rq)
     {
+        $this->validate($rq,
+        [
+            'name' => 'required',
+        ],
+        [
+            'name.required' => 'sdhksjg',
+        ]);
         $data = input::All();
         $data['alias'] = str_slug($data['name']);
         $category ->update($data);
         return redirect('administrator/category');
     }
 
-    public function deleteCategory($category)
-    {   $data = Category::find($category);
-        $data->delete();
+    public function deleteCategory(Category $category)
+    {
+        $category->delete();
         return redirect('administrator/category');
     }
+
 }
