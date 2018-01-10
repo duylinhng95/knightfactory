@@ -13,7 +13,7 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-lg-6">
-                                    {!! Form::model($speaker,['url'=>'adss/speaker/'.$speaker->id,'files' => true,'method'=>'put']) !!}
+                                    {!! Form::model($speaker,['url'=>'administrator/speaker/'.$speaker->id,'files' => true,'method'=>'put']) !!}
                                         @include('admin.speaker.form')
                                     {!! Form::close() !!}
                                 </div>

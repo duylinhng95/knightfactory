@@ -14,7 +14,7 @@
 Route::get('administrator', function () {
     return view('admin.master-admin');
 });
-Route::group(['prefix'=>'adss'], function (){
+Route::group(['prefix'=>'administrator'], function (){
     Route::get('/',function(){
     	return view('admin.master-admin');
     });
@@ -28,11 +28,11 @@ Route::group(['prefix'=>'adss'], function (){
 	});
 	Route::group(['prefix'=>'category'],function(){
 		Route::get('/', 'CategoryController@listCategory');
-		Route::get('/add', 'CategoryController@getAddCategory');
-		Route::post('/add', 'CategoryController@postAddCategory');
-		Route::get('/edit/{category}', 'CategoryController@getEditCategory');
-		Route::put('/edit/{category}', 'CategoryController@putEditCategory');
-		Route::get('/delete/{category}', 'CategoryController@deleteCategory');
+		Route::get('/add', 'CategoryController@getAddCategory')->name('add-category');
+		Route::post('/add', 'CategoryController@postAddCategory')->name('add-category');
+		Route::get('/edit/{category}', 'CategoryController@getEditCategory')->name('edit-category');
+		Route::put('/edit/{category}', 'CategoryController@putEditCategory')->name('edit-category');
+		Route::get('/delete/{category}', 'CategoryController@deleteCategory')->name('delete-category');
 	});
 });
 
