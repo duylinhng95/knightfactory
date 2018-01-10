@@ -2,7 +2,7 @@
 @section('content')
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header">Edit Course</h1>
+            <h1 class="page-header">Add Course</h1>
         </div>
         <!-- /.col-lg-12 -->
     </div>
@@ -12,44 +12,42 @@
             <div class="panel panel-default">
                 <div class="panel-body">
                     <div class="row">
-                        <form role="form" action="{{ url('administrator/blog/update-blog') }}/{{$blog->id}}" method="post" id="form" enctype="multipart/form-data">
+                        <form role="form" action="{{url('administrator/course/save-course')}}" method="post" id="form" enctype="multipart/form-data">
                                 {!!csrf_field()!!}
                                 <div class="col-lg-4">
                                     <div class="form-group">
-                                        <label>Title</label>
-                                        <input type="text" name="title" id="title" class="form-control" value="{{$blog->title}}">
+                                        <label>Select category</label>
+                                        <select class="form-control" name="category">
+                                            <option value="">select category</option>
+                                            @foreach($categories as $category)
+                                                <option value="{{$category->id}}">{{$category->name}}</option>
+                                            @endforeach
+                                        </select>
                                     </div>
-                                    @if ($errors->has('title'))
+                                    <div class="form-group">
+                                        <label>Name</label>
+                                        <input type="text" name="name" id="name" class="form-control" value="{{old('name')}}">
+                                    </div>
+                                    @if ($errors->has('name'))
                                           <span class="help-block" style="color:red;">
-                                              <strong>{{ $errors->first('title') }}</strong>
+                                              <strong>{{ $errors->first('name') }}</strong>
                                           </span>
                                      @endif
-
                                     <div class="form-group">
-                                        <label>Thumbnail</label>
-                                        <input type="file" id="thumbnail1" name="thumbnail" value="{{$blog->thumbnail}}">
-                                        <img alt="no image" id="thumbnail" style="width: 100px; height: 100px;">
+                                        <label>Image</label>
+                                        <input type="file" id="image1" name="image" value="{{old('image')}}"><br>
+                                        <img alt="no image" id="image" style="width: 100px; height: 100px;">
                                     </div>
-                                    @if ($errors->has('thumbnail'))
+                                    @if ($errors->has('image'))
                                           <span class="help-block" style="color:red;">
-                                              <strong>{{ $errors->first('thumbnail') }}</strong>
-                                          </span>
-                                     @endif
-
-                                    <div class="form-group">
-                                        <label>Description</label>
-                                        <textarea name="description" id="description"  class="form-control">{{$blog->description}}</textarea>
-                                    </div>
-                                    @if ($errors->has('description'))
-                                          <span class="help-block" style="color:red;">
-                                              <strong>{{ $errors->first('description') }}</strong>
+                                              <strong>{{ $errors->first('image') }}</strong>
                                           </span>
                                      @endif
                                 </div>
                                 <div class="col-lg-8">
                                     <div class="form-group">
                                         <h1>Content</h1>
-                                        <textarea name="content" id="content"  class="form-control" rows="15">{{$blog->content}}</textarea>
+                                        <textarea name="content" id="content"  class="form-control" rows="15">{{old('content')}}</textarea>
                                         <script>CKEDITOR.replace('content');</script>
                                     </div>
                                     @if ($errors->has('content'))
@@ -57,7 +55,6 @@
                                               <strong>{{ $errors->first('content') }}</strong>
                                           </span>
                                      @endif
-
                                 </div>
                                 <button type="submit" class="btn btn-success">Save</button>
                                 <button type="reset" class="btn btn-primary">Reset</button>
@@ -78,12 +75,12 @@
     </div>
     <!-- /.row -->
     <script type="text/javascript">
-        document.getElementById("thumbnail1").onchange = function () {
+        document.getElementById("image1").onchange = function () {
            var reader = new FileReader();
 
            reader.onload = function (e) {
                // get loaded data and render thumbnail.
-               document.getElementById("thumbnail").src = e.target.result;
+               document.getElementById("image").src = e.target.result;
            };
 
            // read the image file as a data URL.
