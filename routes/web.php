@@ -38,6 +38,14 @@ Route::group(['prefix'=>'administrator'], function (){
         Route::post('update-blog/{id}', 'BlogController@update');
         Route::get('delete-blog/{id}', 'BlogController@destroy');
     });
+    Route::group(['prefix'=>'course'],function(){
+        Route::get('/', 'CourseController@index')->name('list-courses');
+        Route::get('add-course', 'CourseController@create');
+        Route::post('save-course', 'CourseController@store');
+        Route::get('edit-course/{id}', 'CourseController@edit');
+        Route::post('update-course/{id}', 'CourseController@update');
+        Route::get('delete-course/{id}', 'CourseController@destroy');
+    });
 });
 
 Route::get('administrator/city', 'CityController@listCity');

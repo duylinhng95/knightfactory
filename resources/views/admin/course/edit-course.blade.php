@@ -12,44 +12,35 @@
             <div class="panel panel-default">
                 <div class="panel-body">
                     <div class="row">
-                        <form role="form" action="{{ url('administrator/blog/update-blog') }}/{{$blog->id}}" method="post" id="form" enctype="multipart/form-data">
+                        <form role="form" action="{{ url('administrator/course/update-course') }}/{{$course->id}}" method="post" id="form" enctype="multipart/form-data">
                                 {!!csrf_field()!!}
                                 <div class="col-lg-4">
                                     <div class="form-group">
-                                        <label>Title</label>
-                                        <input type="text" name="title" id="title" class="form-control" value="{{$blog->title}}">
+                                        <label>Name</label>
+                                        <input type="text" name="name" id="name" class="form-control" value="{{$course->name}}">
                                     </div>
-                                    @if ($errors->has('title'))
+                                    @if ($errors->has('name'))
                                           <span class="help-block" style="color:red;">
-                                              <strong>{{ $errors->first('title') }}</strong>
+                                              <strong>{{ $errors->first('name') }}</strong>
                                           </span>
                                      @endif
 
                                     <div class="form-group">
-                                        <label>Thumbnail</label>
-                                        <input type="file" id="thumbnail1" name="thumbnail" value="{{$blog->thumbnail}}">
-                                        <img alt="no image" id="thumbnail" style="width: 100px; height: 100px;">
+                                        <label>image</label>
+                                        <input type="file" id="image1" name="image" value="{{$course->image}}"><br>
+                                        <img alt="no image" id="image" style="width: 100px; height: 100px;">
                                     </div>
-                                    @if ($errors->has('thumbnail'))
+                                    @if ($errors->has('image'))
                                           <span class="help-block" style="color:red;">
-                                              <strong>{{ $errors->first('thumbnail') }}</strong>
+                                              <strong>{{ $errors->first('image') }}</strong>
                                           </span>
                                      @endif
 
-                                    <div class="form-group">
-                                        <label>Description</label>
-                                        <textarea name="description" id="description"  class="form-control">{{$blog->description}}</textarea>
-                                    </div>
-                                    @if ($errors->has('description'))
-                                          <span class="help-block" style="color:red;">
-                                              <strong>{{ $errors->first('description') }}</strong>
-                                          </span>
-                                     @endif
                                 </div>
                                 <div class="col-lg-8">
                                     <div class="form-group">
                                         <h1>Content</h1>
-                                        <textarea name="content" id="content"  class="form-control" rows="15">{{$blog->content}}</textarea>
+                                        <textarea name="content" id="content"  class="form-control" rows="15">{{$course->content}}</textarea>
                                         <script>CKEDITOR.replace('content');</script>
                                     </div>
                                     @if ($errors->has('content'))
@@ -78,12 +69,12 @@
     </div>
     <!-- /.row -->
     <script type="text/javascript">
-        document.getElementById("thumbnail1").onchange = function () {
+        document.getElementById("image1").onchange = function () {
            var reader = new FileReader();
 
            reader.onload = function (e) {
                // get loaded data and render thumbnail.
-               document.getElementById("thumbnail").src = e.target.result;
+               document.getElementById("image").src = e.target.result;
            };
 
            // read the image file as a data URL.
