@@ -143,6 +143,9 @@
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
+                        <li>
+                            <a href="{{url('administrator/blog/list-blogs')}}"><i class="fa fa-rss"></i> Blogs</a>
+                        </li>
                     </ul>
                 </div>
                 <!-- /.sidebar-collapse -->
