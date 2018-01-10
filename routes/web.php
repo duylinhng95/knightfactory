@@ -14,6 +14,19 @@
 Route::get('administrator', function () {
     return view('admin.master-admin');
 });
+Route::group(['prefix'=>'adss'], function (){
+    Route::get('/',function(){
+    	return view('admin.master-admin');
+    });
+    Route::group(['prefix'=>'speaker'],function(){
+    	Route::get('/','SpeakerController@showSpeakers')->name('speaker');
+		Route::get('/create','SpeakerController@addSpeaker')->name('create-speaker');
+		Route::post('/','SpeakerController@saveSpeaker');
+		Route::get('/{speaker}/edit','SpeakerController@editSpeaker');
+		Route::put('/{speaker}','SpeakerController@updateSpeaker');
+		Route::get('/{speaker}/delete','SpeakerController@deleteSpeaker');
+	});
+});
 Route::get('administrator/category', 'CategoryController@listCategory');
 Route::get('administrator/category/add', 'CategoryController@getAddCategory');
 Route::post('administrator/category/add', 'CategoryController@postAddCategory');
