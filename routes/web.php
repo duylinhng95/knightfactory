@@ -46,6 +46,12 @@ Route::group(['prefix'=>'administrator'], function (){
         Route::post('update-course/{id}', 'CourseController@update');
         Route::get('delete-course/{id}', 'CourseController@destroy');
     });
+    Route::group(['prefix'=>'user'],function(){
+        Route::get('/', 'UserController@index')->name('list-users');
+        Route::get('edit-user/{id}', 'UserController@edit');
+        Route::post('update-user/{id}', 'UserController@update');
+        Route::get('delete-user/{id}', 'UserController@destroy');
+    });
     Route::group(['prefix'=>'city'],function(){
         Route::get('/', 'CityController@listCity');
         Route::get('/add', 'CityController@getAddCity');
@@ -63,4 +69,6 @@ Route::group(['prefix'=>'administrator'], function (){
         Route::get('/{student}','StudentController@detailStudent');
         Route::get('/{student}/delete','StudentController@deleteStudent')->name('delete-student');
     });
-});
+});Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
