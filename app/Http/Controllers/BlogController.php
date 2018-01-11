@@ -127,11 +127,11 @@ class BlogController extends Controller
             $file = $rq->file('thumbnail');
             $filename = $file->getClientOriginalName('thumbnail');
             $images = time()."_".$filename;
-            $destinationPath = base_path('/page/images/thumbnail');
+            $destinationPath = public_path('/admin/images/blog/');
             $file->move($destinationPath, $images);
-            $oldfile = $editBlog->thumbnail;
-            Storage::delete($oldfile);
-            $editBlog['thumbnail'] = $images;
+            $oldfile=public_path('admin/images/blog/').$editBlog->thumbnail;
+            unlink($oldfile);
+            $editBlog->thumbnail = $images;
         }
         $editBlog ->update();
         Toastr::success('Edit successful Article', $title = null, $options = []);

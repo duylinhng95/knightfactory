@@ -4,7 +4,7 @@
     <div class="form-controls {{ $errors->has('name') ? 'has-error' : '' }}">
         {!! Form::text('name', null, ['class'=>'form-control']) !!}
         @if ( $errors->has('name') )
-            <span class="text-warning">
+            <span style="color: red;" class="text-warning">
                 <strong> {{ $errors->first('name') }} </strong>
             </span>
         @endif
