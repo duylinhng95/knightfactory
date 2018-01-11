@@ -118,7 +118,7 @@
                             <a href="#"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-user fa-fw"></i> Manage User</a>
+                            <a href="{{url('administrator/user')}}"><i class="fa fa-user fa-fw"></i> Manage User</a>
                         </li>
                         <li>
                             <a href="#"><i class="fa fa-edit fa-fw"></i> Articles</a>
