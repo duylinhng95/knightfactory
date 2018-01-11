@@ -32,7 +32,7 @@ class SpeakerController extends Controller
     	$data['avatar']=$images;
 
     	$speaker=Speaker::create($data);
-         Toastr::success('Add successful Speaker', $title = null, $options = []);
+        Toastr::success('Add successful Speaker', $title = null, $options = []);
     	return redirect('administrator/speaker');
     }
     public function editSpeaker(Speaker $speaker)
