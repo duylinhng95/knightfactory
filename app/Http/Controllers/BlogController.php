@@ -146,9 +146,12 @@ class BlogController extends Controller
      */
     public function destroy($id)
     {
-        $deleteBlog = Blog::find($id);
-        $oldfile=public_path('admin/images/blog/').$deleteBlog->thumbnail;
-        unlink($oldfile);
+        if(file_exists(public_path('admin/images/blog/').$deleteBlog->thumbnail))
+        {
+            $deleteBlog = Blog::find($id);
+            $oldfile=public_path('admin/images/blog/').$deleteBlog->thumbnail;
+            unlink($oldfile);
+        }        
         $deleteBlog ->delete();
         return redirect()->route('list-blogs');
     }

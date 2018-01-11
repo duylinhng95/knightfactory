@@ -59,9 +59,12 @@ class SpeakerController extends Controller
     	return redirect('administrator/speaker');
     }
     public function deleteSpeaker(Speaker $speaker)
-    {
-        $oldfile=public_path('admin/images/speaker/avatar/').$speaker->avatar;            
-        unlink($oldfile);
+    {   
+        if (file_exists(public_path('admin/images/speaker/avatar/').$speaker->avatar))
+        {
+            $oldfile=public_path('admin/images/speaker/avatar/').$speaker->avatar;            
+            unlink($oldfile);
+        }
     	$speaker->delete();
     	return redirect('administrator/speaker');
     }
