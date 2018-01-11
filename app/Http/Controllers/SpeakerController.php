@@ -32,7 +32,7 @@ class SpeakerController extends Controller
     	$data['avatar']=$images;
 
     	$speaker=Speaker::create($data);
-         Toastr::success('Add successful Speaker', $title = null, $options = []);
+        Toastr::success('Add successful Speaker', $title = null, $options = []);
     	return redirect('administrator/speaker');
     }
     public function editSpeaker(Speaker $speaker)
@@ -59,9 +59,12 @@ class SpeakerController extends Controller
     	return redirect('administrator/speaker');
     }
     public function deleteSpeaker(Speaker $speaker)
-    {
-        $oldfile=public_path('admin/images/speaker/avatar/').$speaker->avatar;            
-        unlink($oldfile);
+    {   
+        if (file_exists(public_path('admin/images/speaker/avatar/').$speaker->avatar))
+        {
+            $oldfile=public_path('admin/images/speaker/avatar/').$speaker->avatar;            
+            unlink($oldfile);
+        }
     	$speaker->delete();
     	return redirect('administrator/speaker');
     }

@@ -52,15 +52,23 @@ Route::group(['prefix'=>'administrator'], function (){
         Route::post('update-user/{id}', 'UserController@update');
         Route::get('delete-user/{id}', 'UserController@destroy');
     });
-});
-
-Route::get('administrator/city', 'CityController@listCity');
-Route::get('administrator/city/add', 'CityController@getAddCity');
-Route::post('administrator/city/add', 'CityController@postAddCity');
-Route::get('administrator/city/edit/{city}', 'CityController@getEditCity');
-Route::put('administrator/city/edit/{city}', 'CityController@putEditCity');
-Route::get('administrator/city/delete/{city}', 'CityController@deleteCity');
-
-Auth::routes();
+    Route::group(['prefix'=>'city'],function(){
+        Route::get('/', 'CityController@listCity');
+        Route::get('/add', 'CityController@getAddCity');
+        Route::post('/add', 'CityController@postAddCity');
+        Route::get('/edit/{city}', 'CityController@getEditCity');
+        Route::put('/edit/{city}', 'CityController@putEditCity');
+        Route::get('/delete/{city}', 'CityController@deleteCity');
+    });
+    Route::group(['prefix'=>'student'],function(){
+        Route::get('/','StudentController@listStudents')->name('student');
+        Route::get('/create','StudentController@addStudent');
+        Route::post('/','StudentController@saveStudent');
+        Route::get('/{student}/edit','StudentController@editStudent')->name('edit-student');
+        Route::put('/{student}','StudentController@updateStudent');
+        Route::get('/{student}','StudentController@detailStudent');
+        Route::get('/{student}/delete','StudentController@deleteStudent')->name('delete-student');
+    });
+});Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
