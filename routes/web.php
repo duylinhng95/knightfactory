@@ -60,6 +60,7 @@ Route::group(['prefix'=>'administrator'], function (){
         Route::post('/','StudentController@saveStudent');
         Route::get('/{student}/edit','StudentController@editStudent')->name('edit-student');
         Route::put('/{student}','StudentController@updateStudent');
-        Route::get('/{student}','StudentController@detailStudent')->name('delete-student');
+        Route::get('/{student}','StudentController@detailStudent');
+        Route::get('/{student}/delete','StudentController@deleteStudent')->name('delete-student');
     });
 });
