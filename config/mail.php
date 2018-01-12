@@ -54,11 +54,8 @@ return [
     | used globally for all e-mails that are sent by your application.
     |
     */
-
-    'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'hello@example.com'),
-        'name' => env('MAIL_FROM_NAME', 'Example'),
-    ],
+'from' => [
+    'address' => 'knightfactory18@gmail.com', 'name' => 'knightfactory'],
 
     /*
     |--------------------------------------------------------------------------
@@ -84,9 +81,9 @@ return [
     |
     */
 
-    'username' => env('MAIL_USERNAME'),
+    'username' => 'knightfactory18@gmail.com',
 
-    'password' => env('MAIL_PASSWORD'),
+    'password' => 'p123456789',
 
     /*
     |--------------------------------------------------------------------------
@@ -119,5 +116,11 @@ return [
             resource_path('views/vendor/mail'),
         ],
     ],
-
+    'stream' => [
+    'ssl' => [
+        'allow_self_signed' => true,
+        'verify_peer' => false,
+        'verify_peer_name' => false,
+    ],
+    ],
 ];

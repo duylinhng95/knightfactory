@@ -432,3 +432,6 @@ table.dataTable thead .sorting:after {
     border-left-width: 0;
   }
 }
+.panel.panel-default {
+    margin: 30px auto !important;
+}

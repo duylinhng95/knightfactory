@@ -47,14 +47,31 @@ Route::group(['prefix'=>'administrator'], function (){
         Route::post('update-course/{id}', 'CourseController@update');
         Route::get('delete-course/{id}', 'CourseController@destroy');
     });
-    Route::group(['prefix'=>'city'],function(){
-		Route::get('/', 'CityController@listCity');
-		Route::get('/add', 'CityController@getAddCity')->name('add-city');
-		Route::post('/add', 'CityController@postAddCity')->name('add-city');
-		Route::get('/edit/{city}', 'CityController@getEditCity')->name('edit-city');
-		Route::put('/edit/{city}', 'CityController@putEditCity')->name('edit-city');
-		Route::get('/delete/{city}', 'CityController@deleteCity')->name('delete-city');
+    Route::group(['prefix'=>'user'],function(){
+        Route::get('/', 'UserController@index')->name('list-users');
+        Route::get('edit-user/{id}', 'UserController@edit');
+        Route::post('update-user/{id}', 'UserController@update');
+        Route::get('delete-user/{id}', 'UserController@destroy');
     });
+    Route::group(['prefix'=>'city'],function(){
+        Route::get('/', 'CityController@listCity');
+        Route::get('/add', 'CityController@getAddCity');
+        Route::post('/add', 'CityController@postAddCity');
+        Route::get('/edit/{city}', 'CityController@getEditCity');
+        Route::put('/edit/{city}', 'CityController@putEditCity');
+        Route::get('/delete/{city}', 'CityController@deleteCity');
+    });
+    Route::group(['prefix'=>'student'],function(){
+        Route::get('/','StudentController@listStudents')->name('student');
+        Route::get('/create','StudentController@addStudent');
+        Route::post('/','StudentController@saveStudent');
+        Route::get('/{student}/edit','StudentController@editStudent')->name('edit-student');
+        Route::put('/{student}','StudentController@updateStudent');
+        Route::get('/{student}','StudentController@detailStudent');
+        Route::get('/{student}/delete','StudentController@deleteStudent')->name('delete-student');
+    });
+});Auth::routes();
+
     Route::group(['prefix'=>'class'],function(){
 		Route::get('/', 'ClassController@listClass');
 		Route::get('/add', 'ClassController@getAddClass')->name('add-class');
