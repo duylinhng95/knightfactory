@@ -43,9 +43,6 @@ class CategoryController extends Controller
         $this->validate($rq,
         [
             'name' => 'required',
-        ],
-        [
-            'name.required' => 'sdhksjg',
         ]);
         $data = input::All();
         $data['alias'] = str_slug($data['name']);
@@ -60,5 +57,6 @@ class CategoryController extends Controller
          Toastr::success('Delete successful Category', $title = null, $options = []);
         return redirect('administrator/category');
     }
+
 
 }

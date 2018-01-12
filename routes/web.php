@@ -29,6 +29,7 @@ Route::group(['prefix'=>'administrator'], function (){
 		Route::get('/edit/{category}', 'CategoryController@getEditCategory')->name('edit-category');
 		Route::put('/edit/{category}', 'CategoryController@putEditCategory')->name('edit-category');
 		Route::get('/delete/{category}', 'CategoryController@deleteCategory')->name('delete-category');
+        Route::get('/{name}', 'CourseCateController@listCourse');
 	});
     Route::group(['prefix'=>'blog'],function(){
         Route::get('list-blogs', 'BlogController@index')->name('list-blogs');
@@ -46,11 +47,21 @@ Route::group(['prefix'=>'administrator'], function (){
         Route::post('update-course/{id}', 'CourseController@update');
         Route::get('delete-course/{id}', 'CourseController@destroy');
     });
-});
+    Route::group(['prefix'=>'city'],function(){
+		Route::get('/', 'CityController@listCity');
+		Route::get('/add', 'CityController@getAddCity')->name('add-city');
+		Route::post('/add', 'CityController@postAddCity')->name('add-city');
+		Route::get('/edit/{city}', 'CityController@getEditCity')->name('edit-city');
+		Route::put('/edit/{city}', 'CityController@putEditCity')->name('edit-city');
+		Route::get('/delete/{city}', 'CityController@deleteCity')->name('delete-city');
+    });
+    Route::group(['prefix'=>'class'],function(){
+		Route::get('/', 'ClassController@listClass');
+		Route::get('/add', 'ClassController@getAddClass')->name('add-class');
+		Route::post('/add', 'ClassController@postAddCity')->name('add-class');
+		Route::get('/edit/{city}', 'ClassController@getEditCity')->name('edit-class');
+		Route::put('/edit/{city}', 'ClassController@putEditCity')->name('edit-class');
+		Route::get('/delete/{city}', 'ClassController@deleteCity')->name('delete-class');
+	});
 
-Route::get('administrator/city', 'CityController@listCity');
-Route::get('administrator/city/add', 'CityController@getAddCity');
-Route::post('administrator/city/add', 'CityController@postAddCity');
-Route::get('administrator/city/edit/{city}', 'CityController@getEditCity');
-Route::put('administrator/city/edit/{city}', 'CityController@putEditCity');
-Route::get('administrator/city/delete/{city}', 'CityController@deleteCity');
+});

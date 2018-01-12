@@ -121,7 +121,7 @@
                             <a href="#"><i class="fa fa-user fa-fw"></i> Manage User</a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-edit fa-fw"></i> Articles</a>
+                            <a href="#"><i class="fa fa-edit fa-fw"></i> Class</a>
                         </li>
                         <li>
                             <a href="{{url('administrator/category')}}"><i class="fa fa-list "></i> Categories</a>
