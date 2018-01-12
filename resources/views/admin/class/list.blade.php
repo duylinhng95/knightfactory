@@ -2,7 +2,7 @@
 @section('content')
 	<div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header">Categories</h1>
+            <h1 class="page-header">Class</h1>
         </div>
         <!-- /.col-lg-12 -->
     </div>
@@ -11,7 +11,7 @@
         <div class="col-lg-12">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <a href="{{ url('administrator/category/add') }}" class="btn btn-info"><i class="fa fa-plus"></i>Add Category</a>
+                    <a href="{{ url('administrator/class/add') }}" class="btn btn-info"><i class="fa fa-plus"></i>Add Class</a>
                 </div>
                 <!-- /.panel-heading -->
                 <div class="panel-body">
@@ -28,7 +28,7 @@
                             @foreach($categories as $index=>$category)
                             <tr class="odd gradeX">
                             	<td>{{$index+1}}</td>
-                            	<td><a href="{{ url('administrator/category/'.$category->alias) }}">{{ $category ->name }}</a></td>
+                            	<td><a href="#">{{ $category ->name }}</a></td>
                                 <td class="center"><a href="{{ url('administrator/category/edit/'.$category->id) }}"><span class="glyphicon glyphicon-edit"></span></a></td>
                                 <td class="center"><a href="{{ url('administrator/category/delete/'.$category->id) }}" onclick="return confirm('Are you sure ?');"><span class="glyphicon glyphicon-trash"></span></a></td>
                             </tr>

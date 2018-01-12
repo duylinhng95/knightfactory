@@ -29,6 +29,7 @@ Route::group(['prefix'=>'administrator'], function (){
 		Route::get('/edit/{category}', 'CategoryController@getEditCategory')->name('edit-category');
 		Route::put('/edit/{category}', 'CategoryController@putEditCategory')->name('edit-category');
 		Route::get('/delete/{category}', 'CategoryController@deleteCategory')->name('delete-category');
+        Route::get('/{name}', 'CourseCateController@listCourse');
 	});
     Route::group(['prefix'=>'blog'],function(){
         Route::get('list-blogs', 'BlogController@index')->name('list-blogs');
@@ -71,4 +72,13 @@ Route::group(['prefix'=>'administrator'], function (){
     });
 });Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+    Route::group(['prefix'=>'class'],function(){
+		Route::get('/', 'ClassController@listClass');
+		Route::get('/add', 'ClassController@getAddClass')->name('add-class');
+		Route::post('/add', 'ClassController@postAddCity')->name('add-class');
+		Route::get('/edit/{city}', 'ClassController@getEditCity')->name('edit-class');
+		Route::put('/edit/{city}', 'ClassController@putEditCity')->name('edit-class');
+		Route::get('/delete/{city}', 'ClassController@deleteCity')->name('delete-class');
+	});
+
+});
