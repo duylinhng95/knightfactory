@@ -2,7 +2,7 @@
 @section('content')
 <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header">Manage Course</h1>
+            <h1 class="page-header">@if(isset($category)) {{$category->name}} course @else Course @endif</h1>
         </div>
         <!-- /.col-lg-12 -->
     </div>
@@ -19,6 +19,7 @@
                         <thead>
                             <tr>
                                 <th  style="text-align: center;">Index</th>
+                                <th  style="text-align: center;">Category</th>
                                 <th  style="text-align: center;">Image</th>
                                 <th  style="text-align: center;">Name</th>
                                 <th  style="text-align: center;">Edit</th>
@@ -29,6 +30,7 @@
                             @foreach($courses as $index => $course)
                                 <tr class="odd gradeX" style="text-align: center;">
                                     <td style="padding-top: 20px;" >{{ $index + 1 }}</td>
+                                    <td style="padding-top: 20px;" ><a href="{{ url('administrator/category/'.$course->category->alias) }}">{{ $course ->category->name }}</a></td>
                                     <td><img src="{{asset('admin/images/course/'.$course->image)}}" alt="{{ $course ->name }}" style="width: 70px; height: 50px;"> </td>
                                     <td style="padding-top: 20px;" ><a href="#">{{ $course ->name }}</a></td>
                                     <td  style="padding-top: 20px;" class="center"><a href="{{url('administrator/course/edit-course')}}/{{$course->id}}"><span class="glyphicon glyphicon-edit"></span></a> </td>
