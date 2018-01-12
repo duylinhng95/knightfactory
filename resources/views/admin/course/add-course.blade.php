@@ -24,6 +24,11 @@
                                             @endforeach
                                         </select>
                                     </div>
+                                    @if ($errors->has('category'))
+                                          <span class="help-block" style="color:red;">
+                                              <strong>{{ $errors->first('category') }}</strong>
+                                          </span>
+                                     @endif
                                     <div class="form-group">
                                         <label>Name</label>
                                         <input type="text" name="name" id="name" class="form-control" value="{{old('name')}}">

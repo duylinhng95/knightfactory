@@ -40,11 +40,13 @@ class CourseController extends Controller
     {
         $this->validate($rq,
         [
+            'category'=> 'required',
             'name' => 'required|unique:courses',
             'content' => 'required',
             'image' => 'required|max:2000'
         ],
         [
+            'category.required' => 'Category is required',
             'name.required' => 'Name is required',
             'name.unique' => 'The name has already been taken',
             'content.required' => 'Content is required',
