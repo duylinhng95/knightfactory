@@ -30,6 +30,7 @@ Route::group(['prefix'=>'administrator'], function (){
 		Route::put('/edit/{category}', 'CategoryController@putEditCategory')->name('edit-category');
 		Route::get('/delete/{category}', 'CategoryController@deleteCategory')->name('delete-category');
         Route::get('/{name}', 'CourseCateController@listCourse');
+
 	});
     Route::group(['prefix'=>'blog'],function(){
         Route::get('list-blogs', 'BlogController@index')->name('list-blogs');
@@ -70,15 +71,13 @@ Route::group(['prefix'=>'administrator'], function (){
         Route::get('/{student}','StudentController@detailStudent');
         Route::get('/{student}/delete','StudentController@deleteStudent')->name('delete-student');
     });
-});Auth::routes();
-
     Route::group(['prefix'=>'class'],function(){
-		Route::get('/', 'ClassController@listClass');
-		Route::get('/add', 'ClassController@getAddClass')->name('add-class');
-		Route::post('/add', 'ClassController@postAddCity')->name('add-class');
-		Route::get('/edit/{city}', 'ClassController@getEditCity')->name('edit-class');
-		Route::put('/edit/{city}', 'ClassController@putEditCity')->name('edit-class');
-		Route::get('/delete/{city}', 'ClassController@deleteCity')->name('delete-class');
+		Route::get('/{id}', 'ClassCourseController@listClass');
+		Route::get('/add/{id}', 'ClassCourseController@getAddClass');
+		Route::post('/add{id}', 'ClassCourseController@postAddClass');
+		Route::get('/edit/{id}/{class}', 'ClassCourseController@getEditClass')->name('edit-class');
+		Route::put('/edit/{id}/{class}', 'ClassCourseController@putEditClass')->name('edit-class');
+		Route::get('/delete/{id}/{class}', 'ClassCourseController@deleteClass')->name('delete-class');
 	});
-
 });
+    Auth::routes();

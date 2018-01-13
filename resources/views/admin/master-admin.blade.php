@@ -118,33 +118,40 @@
                             <a href="#"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>
                         <li>
-                            <a href="{{url('administrator/user')}}"><i class="fa fa-user fa-fw"></i> Manage User</a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-edit fa-fw"></i> Class</a>
-                        </li>
-                        <li>
-                            <a href="{{url('administrator/category')}}"><i class="fa fa-list "></i> Categories</a>
-                        </li>
-                        <li>
-                            <a href="{{ url('administrator/city') }}"><i class="fa fa-map-o"></i> Cities</a>
-                            <a href="{{url('administrator/course/')}}"><i class="fa fa-gg"></i> Course</a>
-                        </li>
-                        <li>
-                            <a href="{{url('administrator/category')}}"><i class="fa fa-sitemap fa-fw"></i> Multi-Level Dropdown<span class="fa arrow"></span></a>
+                            <a href="{{url('administrator/category')}}"><i class="fa fa-sitemap fa-fw"></i> Categories<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
+                                @foreach($categories as $category)
                                 <li>
-                                    <a href="#">Second Level Item</a>
+                                    <a href="{{ url('administrator/category/'.$category->alias) }}"><i class="fa fa-gg"></i> {{ $category->name }}<span class="fa arrow"></span></a>
+                                    <ul class="nav nav-third-level">
+                                        @foreach($category->courses as $course)
+                                        <li>
+                                            <a href="{{ url('administrator/class/'.$course->id) }}"><i class="fa fa-wrench fa-fw"></i> {{$course ->name}}</a>
+                                        </li>
+                                        @endforeach
+                                    </ul>
                                 </li>
-                                <li>
-                                    <a href="#">Second Level Item</a>
-                                </li>
-                                <li>
-                                    <a href="#">Third Level</a>
-                                </li>
+                                @endforeach
+
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
+                        <li>
+                            <a href="{{url('administrator/course')}}"><i class="fa fa-list"></i> Courses</a>
+                        </li>
+                        <li>
+                            <a href="{{url('administrator/user')}}"><i class="fa fa-user fa-fw"></i> Manage User</a>
+                        </li>
+                        <li>
+                            <a href="{{ url('administrator/city') }}"><i class="fa fa-map-o"></i> Cities</a>
+                        </li>
+                        <li>
+                            <a href="{{ url('administrator/speaker') }}"><i class="fa fa-user-md"></i> Speakers</a>
+                        </li>
+                        <li>
+                            <a href="{{ url('administrator/student') }}"><i class="fa  fa-child  "></i> Students</a>
+                        </li>
+
                         <li>
                             <a href="{{url('administrator/blog/list-blogs')}}"><i class="fa fa-rss"></i> Blogs</a>
                         </li>

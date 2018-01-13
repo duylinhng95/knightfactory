@@ -8,8 +8,8 @@ class City extends Model
 {
     protected $fillable= ['name', 'address','alias'];
 
-    public function class()
+    public function classes()
     {
-    	return $this->belongsTo('App\Class','city_id','id');
+    	return $this->hasMany('App\Class','city_id','id');
     }
 }
