@@ -10,8 +10,8 @@ class Speaker extends Model
 
     protected $fillable=['name','description','avatar'];
 
-    public function class()
+    public function classes()
     {
-    	return $this->belongsTo('App\Class','speaker_id','id');    
+    	return $this->hasMany('App\Class','speaker_id','id');    
     }
 }
