@@ -41,7 +41,7 @@
                             	<td>{{$class->course->name}}</td>
                             	<td>{{$class->start_date}}</td>
                             	<td>{{$class->end_date}}</td>
-                                <td class="center"><a href="{{ url('administrator/class/edit/'.$class->course_id.'/'.$class->id) }}"><span class="glyphicon glyphicon-edit"></span></a></td>
+                                <td class="center"><a href="{{ url('administrator/class/edit/'.$class->id) }}"><span class="glyphicon glyphicon-edit"></span></a></td>
                                 <td class="center"><a href="{{ url('administrator/class/delete'.'/'.$class->course_id.'/'.$class->id) }}" onclick="return confirm('Are you sure ?');"><span class="glyphicon glyphicon-trash"></span></a></td>
                             </tr>
 							@endforeach
