@@ -21,6 +21,7 @@
                                 <th  style="text-align: center;">Index</th>
                                 <th  style="text-align: center;">Thumbnail</th>
                                 <th  style="text-align: center;">Title</th>
+                                <th  style="text-align: center;">View</th>
                                 <th  style="text-align: center;">Edit</th>
                                 <th  style="text-align: center;">Delete</th>
                             </tr>
@@ -31,6 +32,7 @@
                                     <td style="padding-top: 20px;" >{{ $index+1}}</td>
                                     <td><img src="{{asset('admin/images/blog/'.$blog->thumbnail)}}" alt="{{ $blog ->title }}" style="width: 70px; height: 50px;"> </td>
                                     <td style="padding-top: 20px;" ><a href="#">{{$blog->title}}</a></td>
+                                    <td  style="padding-top: 20px;" class="center"><a href="{{url('administrator/blog/view-detail-blog')}}/{{$blog->id}}"><span class="glyphicon glyphicon-zoom-in"></span></a> </td>
                                     <td  style="padding-top: 20px;" class="center"><a href="{{url('administrator/blog/edit-blog')}}/{{$blog->id}}"><span class="glyphicon glyphicon-edit"></span></a> </td>
                                     <td  style="padding-top: 20px;" class="center"><a href="{{url('administrator/blog/delete-blog')}}/{{$blog->id}}" onclick="return confirm('Are you sure ?');"><span class="glyphicon glyphicon-trash"></span></a> </td>
                                 </tr>
