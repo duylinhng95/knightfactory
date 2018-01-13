@@ -22,11 +22,11 @@
 
 <div class="form-group">
     {!! Form::label('speaker_id', 'Name of speaker') !!}
-    <div class="form-controls {{ $errors->has('speaker') ? 'has-error' : '' }}">
-        {!! Form::select('speaker_id',$speakers,null,['placeholder'=>'Select'])!!}
-        @if ( $errors->has('speaker') )
+    <div class="form-controls {{ $errors->has('speaker_id') ? 'has-error' : '' }}">
+        {!! Form::select('speaker_id',$speakers,null,['placeholder'=>'Select'])!!}<br>
+        @if ( $errors->has('speaker_id') )
             <span style="color: red;" class="text-warning">
-                <strong> {{ $errors->first('speaker') }} </strong>
+                <strong> {{ $errors->first('speaker_id') }} </strong>
             </span>
         @endif
     </div>
@@ -34,11 +34,11 @@
 
 <div class="form-group">
     {!! Form::label('city_id', 'Name of city') !!}
-    <div class="form-controls {{ $errors->has('city') ? 'has-error' : '' }}">
-        {!! Form::select('city_id', $cities,null,['placeholder'=>'Select']) !!}
-        @if ( $errors->has('city') )
+    <div class="form-controls {{ $errors->has('city_id') ? 'has-error' : '' }}">
+        {!! Form::select('city_id', $cities,null,['placeholder'=>'Select']) !!}<br>
+        @if ( $errors->has('city_id') )
             <span style="color: red;" class="text-warning">
-                <strong> {{ $errors->first('city') }} </strong>
+                <strong> {{ $errors->first('city_id') }} </strong>
             </span>
         @endif
     </div>
@@ -57,22 +57,22 @@
 
 <div class="form-group">
     {!! Form::label('start_date', 'Start date') !!}
-    <div class="form-controls {{ $errors->has('startdate') ? 'has-error' : '' }}">
+    <div class="form-controls {{ $errors->has('start_date') ? 'has-error' : '' }}">
         {!! Form::date('start_date', null, ['class'=>'form-control']) !!}
-        @if ( $errors->has('startdate') )
+        @if ( $errors->has('start_date') )
             <span style="color: red;" class="text-warning">
-                <strong> {{ $errors->first('startdate') }} </strong>
+                <strong> {{ $errors->first('start_date') }} </strong>
             </span>
         @endif
     </div>
 </div>
 <div class="form-group">
     {!! Form::label('end_date', 'End date') !!}
-    <div class="form-controls {{ $errors->has('enddate') ? 'has-error' : '' }}">
+    <div class="form-controls {{ $errors->has('end_date') ? 'has-error' : '' }}">
         {!! Form::date('end_date', null, ['class'=>'form-control']) !!}
-        @if ( $errors->has('enddate') )
+        @if ( $errors->has('end_date') )
             <span style="color: red;" class="text-warning">
-                <strong> {{ $errors->first('enddate') }} </strong>
+                <strong> {{ $errors->first('end_date') }} </strong>
             </span>
         @endif
     </div>

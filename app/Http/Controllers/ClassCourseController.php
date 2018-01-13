@@ -28,22 +28,57 @@ class ClassCourseController extends Controller
         return view('admin.class.add', compact('course', 'category', 'cities', 'speakers'));
     }
 
-    public function postAddClass($id)
+    public function postAddClass(Request $rq,$id)
     {
+        $this->validate($rq,
+        [
+            'speaker_id' => 'required',
+            'city_id' => 'required',
+            'name' => 'required|unique:classes',
+            'start_date' => 'required|after_or_equal:today',
+            'end_date' => 'required|after:start_date',
+            'description' => 'required'
+        ],
+        [
+            'speaker_id.required' => 'The speaker field is required.',
+            'city_id.required' => 'The City field is required.',
+        ]);
         $data = Input::All();
         $data['course_id']= $id;
         $data['alias'] = str_slug($data['name']);
-        $data = Class1::create($data);
+        $class = Class1::create($data);
         return redirect('administrator/class/'.$id);
     }
 
-    public function getEditClass($id, Class1 $class)
+    public function getEditClass(Class1 $class)
     {
-        $course = Course::find($id);
+        $course = Course::where('id', $class->course_id)->first();
         $category = Category::where('id', $course->category_id)->first();
         $cities = City::All()->pluck('name','id');
         $speakers = Speaker::All()->pluck('name','id');
-        return view('admin.class.edit', compact('class', 'course'. 'category', 'cities', 'speakers'));
+        return view('admin.class.edit', compact('class', 'course', 'category', 'cities', 'speakers'));
+    }
+
+    public function putEditClass(Request $rq, Class1 $class)
+    {
+        $this->validate($rq,
+        [
+            'speaker_id' => 'required',
+            'city_id' => 'required',
+            'name' => 'required',
+            'start_date' => 'required|after_or_equal:today',
+            'end_date' => 'required|after:start_date',
+            'description' => 'required'
+        ],
+        [
+            'speaker_id.required' => 'The speaker field is required.',
+            'city_id.required' => 'The City field is required.',
+        ]);
+        $data = Input::All();
+        $data['course_id']= $class->course_id;
+        $data['alias'] = str_slug($data['name']);
+        $class -> update($data);
+        return redirect('administrator/class/'.$class->course_id);
     }
     public function deleteClass($id, Class1 $class)
     {

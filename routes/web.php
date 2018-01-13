@@ -75,8 +75,8 @@ Route::group(['prefix'=>'administrator'], function (){
 		Route::get('/{id}', 'ClassCourseController@listClass');
 		Route::get('/add/{id}', 'ClassCourseController@getAddClass');
 		Route::post('/add{id}', 'ClassCourseController@postAddClass');
-		Route::get('/edit/{id}/{class}', 'ClassCourseController@getEditClass')->name('edit-class');
-		Route::put('/edit/{id}/{class}', 'ClassCourseController@putEditClass')->name('edit-class');
+		Route::get('/edit/{class}', 'ClassCourseController@getEditClass')->name('edit-class');
+		Route::put('/edit/{class}', 'ClassCourseController@putEditClass')->name('edit-class');
 		Route::get('/delete/{id}/{class}', 'ClassCourseController@deleteClass')->name('delete-class');
 	});
 });
