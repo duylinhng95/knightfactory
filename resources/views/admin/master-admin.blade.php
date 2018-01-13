@@ -118,8 +118,11 @@
                             <a href="#"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>
                         <li>
-                            <a href="{{url('administrator/category')}}"><i class="fa fa-sitemap fa-fw"></i> Categories<span class="fa arrow"></span></a>
+                            <a href=""><i class="fa fa-sitemap fa-fw"></i> Categories<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="{{url('administrator/category')}}"><i class="fa fa-sitemap fa-fw"></i>Manage Categories</span></a>
+                                </li>
                                 @foreach($categories as $category)
                                 <li>
                                     <a href="{{ url('administrator/category/'.$category->alias) }}"><i class="fa fa-gg"></i> {{ $category->name }}<span class="fa arrow"></span></a>

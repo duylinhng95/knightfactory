@@ -81,7 +81,7 @@ class BlogController extends Controller
      */
     public function show($id)
     {
-        //
+        return view('admin.blogs.view-detail-blog');
     }
 
     /**
@@ -151,7 +151,7 @@ class BlogController extends Controller
             $deleteBlog = Blog::find($id);
             $oldfile=public_path('admin/images/blog/').$deleteBlog->thumbnail;
             unlink($oldfile);
-        }        
+        }
         $deleteBlog ->delete();
         return redirect()->route('list-blogs');
     }
