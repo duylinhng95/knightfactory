@@ -79,6 +79,7 @@ Route::group(['prefix'=>'administrator'], function (){
 		Route::get('/edit/{class}', 'ClassCourseController@getEditClass')->name('edit-class');
 		Route::put('/edit/{class}', 'ClassCourseController@putEditClass')->name('edit-class');
 		Route::get('/delete/{id}/{class}', 'ClassCourseController@deleteClass')->name('delete-class');
+        Route::get('/{class}/list/{classname}', 'ClassCourseController@listStudentClass');
 	});
 });
     Auth::routes();

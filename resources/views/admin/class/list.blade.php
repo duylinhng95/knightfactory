@@ -34,7 +34,7 @@
 							@foreach($classes as $index=>$class )
                             <tr class="odd gradeX">
                             	<td>{{$index+1}}</td>
-                            	<td>{{$class->name}}</td>
+                            	<td> <a href="{{ url('administrator/class/'.$class->id.'/list'.'/'.$class->alias) }}">{{$class->name}}</a></td>
                             	<td>{{$class->course->category->name}}</td>
                             	<td>{{$class->city->name}}</td>
                             	<td>{{$class->speaker->name}}</td>
