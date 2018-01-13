@@ -8,6 +8,7 @@ use App\Course;
 use App\Category;
 use App\City;
 use App\Speaker;
+use App\StudentClass;
 use Illuminate\Support\Facades\Input;
 
 class ClassCourseController extends Controller
@@ -84,5 +85,11 @@ class ClassCourseController extends Controller
     {
         $class->delete();
         return redirect('administrator/class/'.$id);
+    }
+
+    public function listStudentClass(Class1 $class)
+    {
+        $students = StudentClass::where('class_id', $class->id)->get();
+        return view('admin.class.list-student', compact('class', 'students'));
     }
 }
