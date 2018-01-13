@@ -70,8 +70,6 @@ Route::group(['prefix'=>'administrator'], function (){
         Route::get('/{student}','StudentController@detailStudent');
         Route::get('/{student}/delete','StudentController@deleteStudent')->name('delete-student');
     });
-});Auth::routes();
-
     Route::group(['prefix'=>'class'],function(){
 		Route::get('/', 'ClassController@listClass');
 		Route::get('/add', 'ClassController@getAddClass')->name('add-class');
@@ -80,5 +78,5 @@ Route::group(['prefix'=>'administrator'], function (){
 		Route::put('/edit/{city}', 'ClassController@putEditCity')->name('edit-class');
 		Route::get('/delete/{city}', 'ClassController@deleteCity')->name('delete-class');
 	});
-
 });
+Auth::routes();
