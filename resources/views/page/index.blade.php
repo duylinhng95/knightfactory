@@ -12,7 +12,7 @@
                     <div class="hero-content">
                     <h1>Welcome to interact!</h1>
                     <p>Start to create your awesome landing pages with elegant and simple elements designed by passion.</p>
-                    <a class="btn btn-primary" href="#">Purchase</a>
+                    <a class="btn btn-primary" href="#">Sign up</a>
                     </div>
                 </div><!-- .col-md-12 end -->
             </div><!-- .row end -->

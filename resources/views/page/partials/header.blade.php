@@ -21,19 +21,16 @@
                         <a data-scroll="scrollTo" href="#hero">home</a>
                     </li>
                     <li>
-                        <a data-scroll="scrollTo" href="#featured5">why us</a>
+                        <a data-scroll="scrollTo" href="#featured5">About us</a>
                     </li>
                     <li>
-                        <a data-scroll="scrollTo" href="#portfolio2">portfolio</a>
+                        <a data-scroll="scrollTo" href="#portfolio2">Courses</a>
                     </li>
                     <li>
-                        <a data-scroll="scrollTo" href="#testimonials4">testimonials</a>
+                        <a data-scroll="scrollTo" href="#testimonials4">Speakers</a>
                     </li>
                     <li>
-                        <a data-scroll="scrollTo" href="#team3">our team</a>
-                    </li>
-                    <li>
-                        <a href="login.php" class="overlayLink" data-action="login-form.html">Login</a>
+                        <a href="login.php" class="overlayLink" data-action="login-form.html">Sign in</a>
                     </li>
                 </ul>
             </div>
