@@ -1136,8 +1136,8 @@ p {
 }
 
 .btn-primary {
-	background-color: #e74c3c;
-	background-image: linear-gradient(to right, #9b59b6 0%, #e74c3c 100%);
+	background-color: #121550;
+	/*background-image: linear-gradient(to right, #9b59b6 0%, #e74c3c 100%);*/
 	color: #ffffff;
 	border: none;
 	transition: all 300ms linear;
@@ -1198,17 +1198,18 @@ p {
     #FORMS
 \*------------------------------------*/
 .form-control {
+	text-align: center;
 	color: #999999;
 	font-family: 'Comfortaa', cursive;
 	font-size: 16px;
 	font-weight: 300;
 	line-height: 46px;
-	background-color: #f2f2f2;
 	border: none;
 	border-radius: 50px;
 	height: 46px;
 	width: 370px;
 	padding: 0 25px;
+	margin: 0 auto;
 }
 
 /*------------------------------------*\

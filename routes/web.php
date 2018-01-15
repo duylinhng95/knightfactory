@@ -11,7 +11,12 @@
 |
 */
 Route::get('/', 'PageController@getIndex');
+Route::group(['prefix'=>'student'],function(){
+    Route::get('/register','StudentController@addStudent');
+    Route::post('/save','StudentController@saveStudent');
+});
 
+//Administrator
 Route::group(['prefix'=>'administrator'], function (){
     Route::get('/',function(){
     	return view('admin.master-admin');
@@ -67,8 +72,6 @@ Route::group(['prefix'=>'administrator'], function (){
     });
     Route::group(['prefix'=>'student'],function(){
         Route::get('/','StudentController@listStudents')->name('student');
-        Route::get('/create','StudentController@addStudent');
-        Route::post('/','StudentController@saveStudent');
         Route::get('/{student}/edit','StudentController@editStudent')->name('edit-student');
         Route::put('/{student}','StudentController@updateStudent');
         Route::get('/{student}','StudentController@detailStudent');

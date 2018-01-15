@@ -2,7 +2,7 @@
 ============================================= -->
 <footer id="footer6" class="footer footer-6 text-center bg-overlay bg-overlay-dark">
     <div class="bg-section">
-        <img src="assets/images/background/bg-6.jpg" alt="Background"/>
+        <img src="{{asset('assets/images/background/bg-6.jpg')}}" alt="Background"/>
     </div>
     <div class="container">
         <div class="row">
