@@ -41,7 +41,7 @@ class CourseController extends Controller
         $this->validate($rq,
         [
             'category'=> 'required',
-          
+
             'content' => 'required',
             'image' => 'required|max:2000'
         ],
@@ -145,6 +145,7 @@ class CourseController extends Controller
     public function destroy($id)
     {
         $deleteCourse = Course::find($id);
+        $deleteCourse->delete();
         $oldfile=public_path('admin/images/course/').$deleteCourse->image;
         unlink($oldfile);
         $deleteCourse ->delete();
