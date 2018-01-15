@@ -48,7 +48,7 @@
     <!-- Document Wrapper
 	============================================= -->
 	<div id="wrapper" class="wrapper clearfix">
-
+        @include('page.partials.login')
 
         @include('page.partials.header')
 
@@ -65,5 +65,36 @@
     <script src="assets/js/jquery-2.2.4.min.js"></script>
     <script src="assets/js/plugins.js"></script>
     <script src="assets/js/functions.js"></script>
+
+    <script type="text/javascript">
+    $(document).ready(function() {
+    $("#loginLink").click(function( event ){
+        event.preventDefault();
+        $(".overlay").fadeToggle("fast");
+    });
+
+    $(".overlayLink").click(function(event){
+        event.preventDefault();
+        var action = $(this).attr('data-action');
+
+        $.get( "ajax/" + action, function( data ) {
+            $( ".login-content" ).html( data );
+        });
+
+        $(".overlay").fadeToggle("fast");
+    });
+
+    $(".close").click(function(){
+        $(".overlay").fadeToggle("fast");
+    });
+
+    $(document).keyup(function(e) {
+        if(e.keyCode == 27 && $(".overlay").css("display") != "none" ) {
+            event.preventDefault();
+            $(".overlay").fadeToggle("fast");
+        }
+    });
+});
+    </script>
 </body>
 </html>
