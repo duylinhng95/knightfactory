@@ -10,7 +10,7 @@
                 <span class="icon-bar"></span>
                 </button>
                 <a class="logo" href="index.html">
-                    <img src="assets/images/logo/logo.png" alt="Interact">
+                    <img src="{{asset('assets/images/logo/logo.png')}}" alt="Interact">
                 </a>
             </div>
 
