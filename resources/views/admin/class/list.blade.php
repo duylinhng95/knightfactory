@@ -2,7 +2,7 @@
 @section('content')
 	<div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header">Class</h1>
+            	<h2 style = "text-align: center;">LIST CLASS OF <b style="color: red;">{{$course->name}}</b></h2>
         </div>
         <!-- /.col-lg-12 -->
     </div>
@@ -11,7 +11,8 @@
         <div class="col-lg-12">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <a href="{{ url('administrator/class/add/'.$course->id) }}" class="btn btn-info"><i class="fa fa-plus"></i>Add Class</a>
+                    <a href="{{ url('administrator/class/add/'.$course->id) }}" class="btn btn-info"><i class="fa fa-plus"></i> Add Class</a>
+                    <a href="{{ url('administrator/class/view_course/'.$course->id) }}" class="btn btn-info"><i class="fa fa-search-plus"></i> View Detail course {{$course->name}} of {{$course->category->name}}</a>
                 </div>
                 <!-- /.panel-heading -->
                 <div class="panel-body">
