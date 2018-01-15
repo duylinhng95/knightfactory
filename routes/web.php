@@ -10,6 +10,8 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/', 'PageController@getIndex');
+
 Route::group(['prefix'=>'administrator'], function (){
     Route::get('/',function(){
     	return view('admin.master-admin');
