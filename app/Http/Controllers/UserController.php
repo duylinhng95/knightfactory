@@ -74,6 +74,7 @@ class UserController extends Controller
         $data = User::find($id);
         $data->roles = $rq->input('roles');
         $data->save();
+         Toastr::success('Edit successful User', $title = null, $options = []);
         return redirect()->route('list-users');
     }
 
@@ -87,6 +88,7 @@ class UserController extends Controller
     {
         $deleteUser = User::find($id);
         $deleteUser ->delete();
+         Toastr::success('Delete successful User', $title = null, $options = []);
         return redirect()->route('list-users');
     }
 }
