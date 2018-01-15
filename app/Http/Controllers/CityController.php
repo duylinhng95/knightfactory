@@ -30,6 +30,7 @@ class CityController extends Controller
         $data = Input::All();
         $data['alias'] = str_slug($data['name']);
         $city = City::Create($data);
+        Toastr::success('Add successful City', $title = null, $options = []);
         return redirect('administrator/city');
     }
 
@@ -49,12 +50,14 @@ class CityController extends Controller
         $data = Input::All();
         $data['alias'] = str_slug($data['name']);
         $city ->update($data);
+        Toastr::success('Edit successful Category', $title = null, $options = []);
         return redirect('administrator/city');
     }
 
     public function deleteCity(City $city)
     {
         $city->delete();
+        Toastr::success('Delete successful City', $title = null, $options = []);
         return redirect('administrator/city');
     }
 }

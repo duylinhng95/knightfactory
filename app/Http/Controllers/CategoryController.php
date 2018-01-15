@@ -53,6 +53,13 @@ class CategoryController extends Controller
 
     public function deleteCategory(Category $category)
     {
+
+        $category ->classes()->delete();
+        foreach($category->courses as $category_course){
+            $oldfile=public_path('admin/images/course/').$category_course->image;
+            unlink($oldfile);
+        }
+        $category-> courses()->delete();
         $category->delete();
          Toastr::success('Delete successful Category', $title = null, $options = []);
         return redirect('administrator/category');

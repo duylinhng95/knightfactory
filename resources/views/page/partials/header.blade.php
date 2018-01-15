@@ -33,7 +33,7 @@
                         <a data-scroll="scrollTo" href="#team3">our team</a>
                     </li>
                     <li>
-                        <a href="login.php" class="overlayLink" data-action="login-form.html">Login</a>
+                        <a href="login.php" class="overlayLink" data-action="login-form.html">Sign in</a>
                     </li>
                 </ul>
             </div>
