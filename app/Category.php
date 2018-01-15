@@ -15,6 +15,6 @@ class Category extends Model
 
     public function classes()
     {
-    	return $this->hasManyThrough('App\Class','App\Course','category_id','course_id','id');
+    	return $this->hasManyThrough('App\Class1','App\Course','category_id','course_id','id');
     }
 }

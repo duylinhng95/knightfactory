@@ -22,7 +22,7 @@ class SpeakerController extends Controller
     public function saveSpeaker(SpeakerRequest $request)
     {
     	$data=Input::except('avatar');
-    	
+
     	$file=$request->file('avatar');
     	$filename=$file->getClientOriginalName('avatar');
     	$request->file=$filename;
@@ -44,7 +44,7 @@ class SpeakerController extends Controller
     	$data=Input::all();
     	if ($request->hasFile('avatar'))
 		{
-            $oldfile=public_path('admin/images/speaker/avatar/').$speaker->avatar;            
+            $oldfile=public_path('admin/images/speaker/avatar/').$speaker->avatar;
             unlink($oldfile);
 			$file=$request->file('avatar');
 	    	$filename=$file->getClientOriginalName('avatar');
@@ -53,19 +53,20 @@ class SpeakerController extends Controller
 	    	$destinationPath=public_path('admin/images/speaker/avatar');
 	    	$file->move($destinationPath,$images);
 	    	$data['avatar']=$images;
-		}    		    	
+		}
     	$speaker->update($data);
          Toastr::success('Edit successful Speaker', $title = null, $options = []);
     	return redirect('administrator/speaker');
     }
     public function deleteSpeaker(Speaker $speaker)
-    {   
+    {
         if (file_exists(public_path('admin/images/speaker/avatar/').$speaker->avatar))
         {
-            $oldfile=public_path('admin/images/speaker/avatar/').$speaker->avatar;            
+            $oldfile=public_path('admin/images/speaker/avatar/').$speaker->avatar;
             unlink($oldfile);
         }
     	$speaker->delete();
+         Toastr::success('Delete successful Speaker', $title = null, $options = []);
     	return redirect('administrator/speaker');
     }
 }
