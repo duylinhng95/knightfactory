@@ -20,6 +20,7 @@
                                 <li><p><strong>Last Name: </strong>{{$student->lastname}}</p></li>
                                 <li><p><strong>Email: </strong>{{$student->email}}</p></li>
                                 <li><p><strong>Phone: </strong>{{$student->phone}}</p></li>
+                                <li><p><strong>Password: </strong>{{$student->password}}</p></li>
                             </ul>
                         </div>
                         <div class="col-lg-6">

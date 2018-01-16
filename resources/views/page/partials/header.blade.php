@@ -10,7 +10,7 @@
                 <span class="icon-bar"></span>
                 </button>
                 <a class="logo" href="index.html">
-                    <img src="assets/images/logo/logo.png" alt="Interact">
+                    <img src="{{asset('assets/images/logo/logo.png')}}" alt="Interact">
                 </a>
             </div>
 
@@ -21,13 +21,13 @@
                         <a data-scroll="scrollTo" href="#hero">home</a>
                     </li>
                     <li>
-                        <a data-scroll="scrollTo" href="#featured5">why us</a>
+                        <a data-scroll="scrollTo" href="#featured5">About us</a>
                     </li>
                     <li>
-                        <a data-scroll="scrollTo" href="#portfolio2">portfolio</a>
+                        <a data-scroll="scrollTo" href="#portfolio2">Courses</a>
                     </li>
                     <li>
-                        <a data-scroll="scrollTo" href="#testimonials4">testimonials</a>
+                        <a data-scroll="scrollTo" href="#testimonials4">Speakers</a>
                     </li>
                     <li class="mn_category">
                         <a data-scroll="scrollTo" >Category</a>
@@ -37,6 +37,7 @@
                             @endforeach
                         </ul>
                     </li>
+                    <li>
                     <li>
                         <a href="login.php" class="overlayLink" data-action="login-form.html">Sign in</a>
                     </li>

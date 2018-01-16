@@ -18,14 +18,13 @@ class StudentController extends Controller
 	}
 	public function addStudent()
 	{
-		return view('admin.student.create');
+		return view('page.student.register');
 	}
 	public function saveStudent(StudentRequest $request)
 	{
-		$data=$request->all();		
+		$data=$request->all();
 		$student=Student::create($data);
-		Toastr::success('Register Success', $title = null, $options = []);
-		return redirect('administrator/student');
+		return redirect('/');
 	}
 	public function detailStudent(Student $student)
 	{
