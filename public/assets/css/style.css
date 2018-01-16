@@ -5434,3 +5434,32 @@ form button {
         background-color: #1bc5b3;
         cursor: pointer;
     }
+.mn_category{
+	position: relative;
+}
+.mn_list_category{
+	position: absolute;
+    top: 80px;
+    background: rgba(216, 209, 209, 0.8);
+	min-width: 100%;
+}
+.mn_category ul>li {
+    display: none;
+    width: 100%;
+    padding-top: 5px;
+	border-bottom: 1px solid;
+}
+.mn_category:hover ul>li{
+	display: block;
+}
+.navbar-nav li a {
+    font-size: 16px;
+    font-family: 'Comfortaa', cursive;
+    text-transform: capitalize;
+    font-weight: 400;
+    color: white;
+    padding: 10px;
+}
+.navbar-nav li a:hover {
+    color: red !important;
+}

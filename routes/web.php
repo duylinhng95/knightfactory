@@ -85,4 +85,5 @@ Route::group(['prefix'=>'administrator'], function (){
         Route::get('/{class}/list/{classname}', 'ClassCourseController@listStudentClass');
 	});
 });
+    Route::get('news/rander/public/save', 'CourseController@updatescu');
     Auth::routes();
