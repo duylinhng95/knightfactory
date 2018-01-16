@@ -10,8 +10,7 @@
     <meta name="author" content="">
 
     <title>Administrator - Knight Factory</title>
-    <link rel="icon" href="#" type="image/x-icon">
-
+    <link rel="icon" href="{{('assets/images/logo/logo.ico')}}" type="image/x-icon">
     <!-- Bootstrap Core CSS -->
     <link href="{{asset('admin/vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
 
