@@ -35,7 +35,8 @@
 <div class="form-group">
     {!! Form::label('image','Picture of Branch') !!}
     <div class="form-controls {{ $errors->has('image') ? 'has-error' : '' }}">
-        {!! Form::file('image',['class'=>'form-control']) !!}
+        {!! Form::file('image',null,['class'=>'form-control', 'id' => 'image']) !!}<br>
+        <img @if(isset($city)) src="{{asset('admin/images/city/image/'.$city->image)}}"  @endif alt="" id="image1" style="width: 100px; height: 100px;">
         @if ($errors->has('image'))
             <span class="text-warning">
                 <strong> {{ $errors->first('image') }}</strong>

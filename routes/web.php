@@ -79,13 +79,12 @@ Route::group(['prefix'=>'administrator'], function (){
         Route::get('/{student}/delete','StudentController@deleteStudent')->name('delete-student');
     });
     Route::group(['prefix'=>'class'],function(){
-		Route::get('/{id}', 'ClassCourseController@listClass');
-		Route::get('/view_course/{id}', 'CourseController@show');
-		Route::get('/add/{id}', 'ClassCourseController@getAddClass');
-		Route::post('/add{id}', 'ClassCourseController@postAddClass');
-		Route::get('/edit/{class}', 'ClassCourseController@getEditClass')->name('edit-class');
-		Route::put('/edit/{class}', 'ClassCourseController@putEditClass')->name('edit-class');
-		Route::get('/delete/{id}/{class}', 'ClassCourseController@deleteClass')->name('delete-class');
+		Route::get('/', 'ClassController@listClass');
+		Route::get('/add', 'ClassController@getAddClass');
+		Route::post('/add', 'ClassController@postAddClass');
+		Route::get('/edit/{class}', 'ClassController@getEditClass')->name('edit-class');
+		Route::put('/edit/{class}', 'ClassController@putEditClass')->name('edit-class');
+		Route::get('/delete/{class}', 'ClassController@deleteClass')->name('delete-class');
         Route::get('/{class}/list/{classname}', 'ClassCourseController@listStudentClass');
 	});
 });

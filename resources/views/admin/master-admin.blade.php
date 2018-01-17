@@ -128,6 +128,11 @@
                         <li>
                             <a href="{{ url('administrator/speaker') }}"><i class="fa fa-user-md"></i> Speakers</a>
                         </li>
+
+                        <li>
+                            <a href="{{ url('administrator/class') }}"><i class="fa fa-book "></i> Classes</a>
+                        </li>
+
                         <li>
                             <a href="{{ url('administrator/student') }}"><i class="fa  fa-child  "></i> Students</a>
                         </li>
@@ -189,6 +194,19 @@
         function goBack() {
             window.history.back();
         }
+    </script>
+    <script type="text/javascript">
+        document.getElementById("image").onchange = function () {
+           var reader = new FileReader();
+
+           reader.onload = function (e) {
+               // get loaded data and render thumbnail.
+               document.getElementById("image1").src = e.target.result;
+           };
+
+           // read the image file as a data URL.
+           reader.readAsDataURL(this.files[0]);
+           };
     </script>
 
 </body>
