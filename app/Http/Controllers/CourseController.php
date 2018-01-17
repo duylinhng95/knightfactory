@@ -42,10 +42,10 @@ class CourseController extends Controller
     {
         $this->validate($rq,
         [
+            'name' => 'required',
             'category'=> 'required',
-
             'content' => 'required',
-            'image' => 'required|max:2000'
+            'image' => 'required|max:2000',
         ],
         [
             'category.required' => 'Category is required',
@@ -112,17 +112,19 @@ class CourseController extends Controller
         [
             'name' => 'required',
             'content' => 'required',
+            'image' => 'required|max:2000',
         ],
         [
-            'title.required' => 'Title is required',
+            'name.required' => 'Title is required',
             'content.required' => 'Content is required',
+            'image.required' => 'Image is required',
+            'image.max' => 'Limit size is 2000kb'
         ]
     );
+        $data=$rq->all();
         $editCourse = Course::find($id);
-        $editCourse ->category_id = $rq->input('category');
-        $editCourse ->name = $rq->input('name');
-        $editCourse ->alias = str_slug($rq->input('name'));
-        $editCourse ->content = $rq->input('content');
+        $data['alias'] = str_slug($data['name']);
+        $data['category']=$editCourse->category_id;
         if($rq->hasFile('image'))
         {
             $file = $rq->file('image');
@@ -130,11 +132,11 @@ class CourseController extends Controller
             $images = time()."_".$filename;
             $destinationPath = public_path('/admin/images/course/');
             $file->move($destinationPath, $images);
-            $oldfile=public_path('admin/images/course/').$editCourse->image;
+            $oldfile=public_path('admin/images/course/').$images;
             unlink($oldfile);
-            $editCourse->image = $images;
+            $data['image'] = $images;
         }
-        $editCourse ->update();
+        $editCourse ->update($data);
         Toastr::success('Edit successful Course', $title = null, $options = []);
         return redirect()->route('list-courses');
     }
