@@ -16,20 +16,6 @@
                                 {!!csrf_field()!!}
                                 <div class="col-lg-4">
                                     <div class="form-group">
-                                        <label>Select category</label>
-                                        <select class="form-control" name="category">
-                                            <option value="">select category</option>
-                                            @foreach($categories as $category)
-                                                <option value="{{$category->id}}">{{$category->name}}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                    @if ($errors->has('category'))
-                                          <span class="help-block" style="color:red;">
-                                              <strong>{{ $errors->first('category') }}</strong>
-                                          </span>
-                                     @endif
-                                    <div class="form-group">
                                         <label>Name</label>
                                         <input type="text" name="name" id="name" class="form-control" value="{{$course->name}}">
                                     </div>
@@ -39,10 +25,20 @@
                                           </span>
                                      @endif
 
+                                     <div class="form-group">
+                                        <label>Description</label>
+                                        <textarea  name="description" id="description"  class="form-control">{{ $course->description}}</textarea>
+                                    </div>
+                                    @if ($errors->has('description'))
+                                          <span class="help-block" style="color:red;">
+                                              <strong>{{ $errors->first('description') }}</strong>
+                                          </span>
+                                     @endif
+
                                     <div class="form-group">
                                         <label>image</label>
                                         <input type="file" id="image1" name="image" value="{{$course->image}}"><br>
-                                        <img alt="no image" id="image" style="width: 100px; height: 100px;">
+                                        <img src="{{asset('admin/images/course/'.$course->image)}}" alt="no image" id="image" style="width: 100px; height: 100px;">
                                     </div>
                                     @if ($errors->has('image'))
                                           <span class="help-block" style="color:red;">

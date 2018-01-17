@@ -435,3 +435,6 @@ table.dataTable thead .sorting:after {
 .panel.panel-default {
     margin: 30px auto !important;
 }
+textarea#description {
+    min-height: 150px;
+}
