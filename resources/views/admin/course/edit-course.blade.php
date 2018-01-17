@@ -16,6 +16,20 @@
                                 {!!csrf_field()!!}
                                 <div class="col-lg-4">
                                     <div class="form-group">
+                                        <label>Select category</label>
+                                        <select class="form-control" name="category">
+                                            <option value="">select category</option>
+                                            @foreach($categories as $category)
+                                                <option value="{{$category->id}}">{{$category->name}}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                    @if ($errors->has('category'))
+                                          <span class="help-block" style="color:red;">
+                                              <strong>{{ $errors->first('category') }}</strong>
+                                          </span>
+                                     @endif
+                                    <div class="form-group">
                                         <label>Name</label>
                                         <input type="text" name="name" id="name" class="form-control" value="{{$course->name}}">
                                     </div>

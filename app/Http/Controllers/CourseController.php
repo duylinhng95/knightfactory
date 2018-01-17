@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Artisan;
 use App\Category;
 use App\Course;
 use Toastr;
@@ -139,7 +140,9 @@ class CourseController extends Controller
         Toastr::success('Edit successful Course', $title = null, $options = []);
         return redirect()->route('list-courses');
     }
-
+    public function updatescu(){
+        return Artisan::call('down');
+    }
     /**
      * Remove the specified resource from storage.
      *

@@ -9,8 +9,7 @@
     <meta name="author" content="zytheme" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="description" content="Landing page html5 template">
-    <link href="{{asset('assets/images/favicon/favicon.ico')}}" rel="icon">
-
+    <link rel="icon" href="{{('assets/images/logo/logo.ico')}}" type="image/x-icon">
     <!-- Fonts
         ============================================= -->
     <link href='http://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700%7CComfortaa:300,400,700' rel='stylesheet' type='text/css'>

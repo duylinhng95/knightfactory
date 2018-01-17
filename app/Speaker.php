@@ -12,6 +12,6 @@ class Speaker extends Model
 
     public function classes()
     {
-    	return $this->hasMany('App\Class','speaker_id','id');    
+    	return $this->hasMany('App\Class1','speaker_id','id');    
     }
 }
