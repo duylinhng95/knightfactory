@@ -2,7 +2,7 @@
 @section('content')
 	<div class="row">
         <div class="col-lg-12">
-            	<h2 style = "text-align: center;">LIST CLASS OF <b style="color: red;">{{$course->name}}</b></h2>
+            	<h2 style = "text-align: center;">CLASSES</h2>
         </div>
         <!-- /.col-lg-12 -->
     </div>
@@ -11,8 +11,7 @@
         <div class="col-lg-12">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <a href="{{ url('administrator/class/add/'.$course->id) }}" class="btn btn-info"><i class="fa fa-plus"></i> Add Class</a>
-                    <a href="{{ url('administrator/class/view_course/'.$course->id) }}" class="btn btn-info"><i class="fa fa-search-plus"></i> View Detail course {{$course->name}} of {{$course->category->name}}</a>
+                    <a href="{{ url('administrator/class/add')}}" class="btn btn-info"><i class="fa fa-plus"></i> Add Class</a>
                 </div>
                 <!-- /.panel-heading -->
                 <div class="panel-body">
@@ -21,10 +20,9 @@
                             <tr>
                                 <th>#</th>
                                 <th>Name</th>
-                                <th>Category</th>
                                 <th>City</th>
+								<th>Course</th>
                                 <th>Speaker</th>
-                                <th>Course</th>
                                 <th>Start date</th>
                                 <th>End date</th>
                                 <th>Edit</th>
@@ -35,15 +33,14 @@
 							@foreach($classes as $index=>$class )
                             <tr class="odd gradeX">
                             	<td>{{$index+1}}</td>
-                            	<td> <a href="{{ url('administrator/class/'.$class->id.'/list'.'/'.$class->alias) }}">{{$class->name}}</a></td>
-                            	<td>{{$class->course->category->name}}</td>
+                            	<td> <a href="#">{{$class->name}}</a></td>
                             	<td>{{$class->city->name}}</td>
+								<td>{{$class->course->name}}</td>
                             	<td>{{$class->speaker->name}}</td>
-                            	<td>{{$class->course->name}}</td>
                             	<td>{{$class->start_date}}</td>
                             	<td>{{$class->end_date}}</td>
-                                <td class="center"><a href="{{ url('administrator/class/edit/'.$class->id) }}"><span class="glyphicon glyphicon-edit"></span></a></td>
-                                <td class="center"><a href="{{ url('administrator/class/delete'.'/'.$class->course_id.'/'.$class->id) }}" onclick="return confirm('Are you sure ?');"><span class="glyphicon glyphicon-trash"></span></a></td>
+                                <td class="center"><a href="#"><span class="glyphicon glyphicon-edit"></span></a></td>
+                                <td class="center"><a href="#" onclick="return confirm('Are you sure ?');"><span class="glyphicon glyphicon-trash"></span></a></td>
                             </tr>
 							@endforeach
                         </tbody>
