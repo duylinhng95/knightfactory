@@ -29,15 +29,7 @@
                     <li>
                         <a data-scroll="scrollTo" href="#testimonials4">Speakers</a>
                     </li>
-                    <li class="mn_category">
-                        <a data-scroll="scrollTo" >Category</a>
-                        <ul class="mn_list_category">
-                            @foreach($categories as $category)
-                                <li style="boder-bottom: 1px solid black;"><a href="#">{{$category->name}}</a></li>
-                            @endforeach
-                        </ul>
-                    </li>
-                    <li>
+
                     <li>
                         <a href="login.php" class="overlayLink" data-action="login-form.html">Sign in</a>
                     </li>
