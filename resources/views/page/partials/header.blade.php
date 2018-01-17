@@ -29,8 +29,7 @@
                     <li>
                         <a data-scroll="scrollTo" href="#testimonials4">Speakers</a>
                     </li>
-                    
-                    <li>
+
                     <li>
                         <a href="login.php" class="overlayLink" data-action="login-form.html">Sign in</a>
                     </li>

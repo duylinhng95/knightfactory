@@ -25,11 +25,23 @@ class CityController extends Controller
         $this->validate($rq,
         [
             'name' => 'required|unique:cities',
-            'address' => 'required|unique:cities'
-        ]
-        );
-        $data = Input::All();
+            'address' => 'required|unique:cities',
+            'image' => 'required',
+            'description' => 'required'
+        ]);
+        $data = Input::except('image');
         $data['alias'] = str_slug($data['name']);
+
+        if($rq->hasFile('image'))
+        {
+            $file = $rq->file('image');
+        	$filename = $file->getClientOriginalName('image');
+        	$rq ->file = $filename;
+        	$images = time().".".$filename;
+        	$destinationPath = public_path('admin/images/city/image');
+        	$file ->move($destinationPath,$images);
+        	$data['image'] = $images;
+        }
         $city = City::Create($data);
         Toastr::success('Add successful City', $title = null, $options = []);
         return redirect('administrator/city');
@@ -45,11 +57,24 @@ class CityController extends Controller
         $this->validate($rq,
         [
             'name' => 'required',
-            'address' => 'required'
+            'address' => 'required',
+            'description' => 'required'
         ]
         );
         $data = Input::All();
         $data['alias'] = str_slug($data['name']);
+        if($rq->hasFile('image'))
+        {
+            $oldfile=public_path('admin/images/city/image/').$city->image;
+            unlink($oldfile);
+            $file = $rq->file('image');
+        	$filename = $file->getClientOriginalName('image');
+        	$rq ->file = $filename;
+        	$images = time().".".$filename;
+        	$destinationPath = public_path('admin/images/city/image');
+        	$file ->move($destinationPath,$images);
+        	$data['image'] = $images;
+        }
         $city ->update($data);
         Toastr::success('Edit successful Category', $title = null, $options = []);
         return redirect('administrator/city');
@@ -57,6 +82,8 @@ class CityController extends Controller
 
     public function deleteCity(City $city)
     {
+        $oldfile=public_path('admin/images/city/image/').$city->image;
+        unlink($oldfile);
         $city->delete();
         Toastr::success('Delete successful City', $title = null, $options = []);
         return redirect('administrator/city');

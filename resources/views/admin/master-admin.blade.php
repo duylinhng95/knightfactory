@@ -116,26 +116,15 @@
                         <li>
                             <a href="#"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>
-                        <li>
-                            <a href=""><i class="fa fa-sitemap fa-fw"></i> Categories<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="{{url('administrator/category')}}"><i class="fa fa-sitemap fa-fw"></i>Manage Categories</span></a>
-                                </li>
-                                
 
-                            </ul>
-                            <!-- /.nav-second-level -->
+                        <li>
+                            <a href="{{ url('administrator/city') }}"><i class="fa fa-map-o"></i> Branches</a>
                         </li>
+
                         <li>
                             <a href="{{url('administrator/course')}}"><i class="fa fa-list"></i> Courses</a>
                         </li>
-                        <li>
-                            <a href="{{url('administrator/user')}}"><i class="fa fa-user fa-fw"></i> Manage User</a>
-                        </li>
-                        <li>
-                            <a href="{{ url('administrator/city') }}"><i class="fa fa-map-o"></i> Cities</a>
-                        </li>
+
                         <li>
                             <a href="{{ url('administrator/speaker') }}"><i class="fa fa-user-md"></i> Speakers</a>
                         </li>
@@ -146,6 +135,11 @@
                         <li>
                             <a href="{{url('administrator/blog/list-blogs')}}"><i class="fa fa-rss"></i> Blogs</a>
                         </li>
+
+                        <li>
+                            <a href="{{url('administrator/user')}}"><i class="fa fa-user fa-fw"></i> Manage User</a>
+                        </li>
+
                     </ul>
                 </div>
                 <!-- /.sidebar-collapse -->
