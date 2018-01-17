@@ -26,7 +26,6 @@ class editStudentRequest extends FormRequest
         return [
             'email'=>'email',
             'phone'=>'numeric',
-            'password'=>'confirmed',
         ];
     }
 }
