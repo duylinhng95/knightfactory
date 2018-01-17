@@ -19,8 +19,7 @@ class CreateCoursesTable extends Migration
             $table->string('alias');
             $table->longText('content');
             $table->string('image');
-            $table->integer('category_id')->unsigned()->nullable();
-            $table->foreign('category_id')->references('id')->on('categories');
+            $table->string('description');
             $table->timestamps();
         });
     }

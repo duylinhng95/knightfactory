@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateClassTable extends Migration
+class CreateClassesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -24,11 +24,9 @@ class CreateClassTable extends Migration
             $table->integer('speaker_id')->unsigned()->nullable();
             $table->foreign('speaker_id')->references('id')->on('speakers');
 
-            $table->integer('course_id')->unsigned()->nullable();
-            $table->foreign('course_id')->references('id')->on('courses');
+            $table->integer('cityCourse_id')->unsigned()->nullable();
+            $table->foreign('cityCourse_id')->references('id')->on('cityCourses');
 
-            $table->integer('city_id')->unsigned()->nullable();
-            $table->foreign('city_id')->references('id')->on('cities');
             $table->timestamps();
         });
     }
