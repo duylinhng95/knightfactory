@@ -122,18 +122,7 @@
                                 <li>
                                     <a href="{{url('administrator/category')}}"><i class="fa fa-sitemap fa-fw"></i>Manage Categories</span></a>
                                 </li>
-                                @foreach($categories as $category)
-                                <li>
-                                    <a href="{{ url('administrator/category/'.$category->alias) }}"><i class="fa fa-gg"></i> {{ $category->name }}<span class="fa arrow"></span></a>
-                                    <ul class="nav nav-third-level">
-                                        @foreach($category->courses as $course)
-                                        <li>
-                                            <a href="{{ url('administrator/class/'.$course->id) }}"><i class="fa fa-wrench fa-fw"></i> {{$course ->name}}</a>
-                                        </li>
-                                        @endforeach
-                                    </ul>
-                                </li>
-                                @endforeach
+                                
 
                             </ul>
                             <!-- /.nav-second-level -->
