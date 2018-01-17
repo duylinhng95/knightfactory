@@ -9,8 +9,8 @@ class City extends Model
 	protected $table='cities';
     protected $fillable= ['name', 'address','image', 'alias', 'description'];
 
-    public function cityCourses()
+    public function classes()
     {
-    	return $this->hasMany('App\CityCourse','city_id','id');
+    	return $this->hasMany('App\Class1','city_id','id');
     }
 }
