@@ -18,8 +18,10 @@ class CreateCoursesTable extends Migration
             $table->string('name');
             $table->string('alias');
             $table->longText('content');
+            $table->longText('content_en')->nullable();
             $table->string('image');
             $table->string('description');
+            $table->string('description_en')->nullable();
             $table->timestamps();
         });
     }
