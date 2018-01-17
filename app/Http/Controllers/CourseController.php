@@ -28,8 +28,7 @@ class CourseController extends Controller
      */
     public function create()
     {
-        $categories = Category::all();
-        return view('admin.course.add-course', compact('categories'));
+        return view('admin.course.add-course');
     }
 
     /**
@@ -43,12 +42,13 @@ class CourseController extends Controller
         $this->validate($rq,
         [
             'name' => 'required',
-            'category'=> 'required',
+            'description'=> 'required|max:300',
             'content' => 'required',
             'image' => 'required|max:2000',
         ],
         [
-            'category.required' => 'Category is required',
+            'description.required' => 'Category is required',
+            'description.max' => 'limit 300 characters',
             'name.required' => 'Name is required',
             'content.required' => 'Content is required',
             'image.required' => 'Image is required',
@@ -56,7 +56,7 @@ class CourseController extends Controller
         ]
     );
         $addCourse = new Course;
-        $addCourse ->category_id = $rq->input('category');
+        $addCourse ->description = $rq->input('description');
         $addCourse ->name = $rq->input('name');
         $addCourse ->alias = str_slug($rq->input('name'));
         $addCourse ->content = $rq->input('content');
@@ -111,20 +111,23 @@ class CourseController extends Controller
         $this->validate($rq,
         [
             'name' => 'required',
+            'description' => 'required|max:300',
             'content' => 'required',
-            'image' => 'required|max:2000',
+            'image' => 'max:2000',
         ],
         [
+            'description.required' => 'description is required',
+            'description.max' => 'limit 300 characters',
             'name.required' => 'Title is required',
             'content.required' => 'Content is required',
-            'image.required' => 'Image is required',
             'image.max' => 'Limit size is 2000kb'
         ]
     );
-        $data=$rq->all();
         $editCourse = Course::find($id);
-        $data['alias'] = str_slug($data['name']);
-        $data['category']=$editCourse->category_id;
+        $editCourse->name = $rq->name;
+        $editCourse->alias = str_slug($rq->name);
+        $editCourse->description = $rq->description;
+        $editCourse->content = $rq->content;
         if($rq->hasFile('image'))
         {
             $file = $rq->file('image');
@@ -132,11 +135,11 @@ class CourseController extends Controller
             $images = time()."_".$filename;
             $destinationPath = public_path('/admin/images/course/');
             $file->move($destinationPath, $images);
-            $oldfile=public_path('admin/images/course/').$images;
+            $oldfile=public_path('admin/images/course/').$editCourse->image;
             unlink($oldfile);
-            $data['image'] = $images;
+            $editCourse->image = $images;
         }
-        $editCourse ->update($data);
+        $editCourse ->update();
         Toastr::success('Edit successful Course', $title = null, $options = []);
         return redirect()->route('list-courses');
     }
@@ -153,6 +156,7 @@ class CourseController extends Controller
     {
         $deleteCourse = Course::find($id);
         $deleteCourse->classes()->delete();
+        $deleteCourse->cityCourses()->delete();
         $oldfile=public_path('admin/images/course/').$deleteCourse->image;
         unlink($oldfile);
         $deleteCourse ->delete();

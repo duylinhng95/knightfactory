@@ -10,6 +10,10 @@ class Course extends Model
 
     public function cityCourses()
     {
-	return $this->hasMany('App\CityCourse','course_id','id');    
+	return $this->hasMany('App\CityCourse','course_id','id');
+    }
+    public function classes()
+    {
+        return $this->hasManyThrough('App\Class1','App\CityCourse','course_id', 'cityCourse_id','id');
     }
 }

@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class CityCourse extends Model
 {
-    protected $table='cityCourses'
+    protected $table='cityCourses';
     public function city()
     {
     	return $this->belongsTo('App\City','city_id','id');
