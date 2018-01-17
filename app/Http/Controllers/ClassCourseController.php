@@ -37,7 +37,7 @@ class ClassCourseController extends Controller
             'city_id' => 'required',
             'name' => 'required|unique:classes',
             'start_date' => 'required|after_or_equal:today',
-            'end_date' => 'required|after:start_date',
+            'end_date' => 'required|after_or_equal:start_date',
             'description' => 'required'
         ],
         [
