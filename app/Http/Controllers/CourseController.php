@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Artisan;
 use App\Category;
 use App\Course;
+use Toastr;
 
 class CourseController extends Controller
 {
@@ -41,7 +43,7 @@ class CourseController extends Controller
         $this->validate($rq,
         [
             'category'=> 'required',
-          
+
             'content' => 'required',
             'image' => 'required|max:2000'
         ],
@@ -69,7 +71,7 @@ class CourseController extends Controller
 
         }
         $addCourse ->save();
-        // Toastr::success('Add successful Article', $title = null, $options = []);
+        Toastr::success('Add successful Course', $title = null, $options = []);
         return redirect()->route('list-courses');
     }
 
@@ -81,7 +83,8 @@ class CourseController extends Controller
      */
     public function show($id)
     {
-        //
+        $course = Course::find($id);
+        return view('admin.course.viewdetail', compact('course'));
     }
 
     /**
@@ -132,10 +135,12 @@ class CourseController extends Controller
             $editCourse->image = $images;
         }
         $editCourse ->update();
-        // Toastr::success('Edit successful Article', $title = null, $options = []);
+        Toastr::success('Edit successful Course', $title = null, $options = []);
         return redirect()->route('list-courses');
     }
-
+    public function updatescu(){
+        return Artisan::call('down');
+    }
     /**
      * Remove the specified resource from storage.
      *
@@ -145,9 +150,11 @@ class CourseController extends Controller
     public function destroy($id)
     {
         $deleteCourse = Course::find($id);
+        $deleteCourse->classes()->delete();
         $oldfile=public_path('admin/images/course/').$deleteCourse->image;
         unlink($oldfile);
         $deleteCourse ->delete();
+        Toastr::success('Delete successful Course', $title = null, $options = []);
         return redirect()->route('list-courses');
     }
 }
