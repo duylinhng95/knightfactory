@@ -24,7 +24,7 @@
 <div class="form-group">
     {!! Form::label('description','Description of Branch') !!}
     <div class="form-controls {{$errors->has('description') ? 'has-error' : ''}}">
-        {!! Form::text('description',null,['class'=>'form-control']) !!}
+        {!! Form::textarea('description',null,['class'=>'form-control']) !!}
         @if( $errors->has('description'))
             <span class="text-warning">
                 <strong>{{$errors->first('description')}}</strong>

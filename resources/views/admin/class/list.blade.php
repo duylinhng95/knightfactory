@@ -2,7 +2,7 @@
 @section('content')
 	<div class="row">
         <div class="col-lg-12">
-            	<h2 style = "text-align: center;">CLASSES</h2>
+            	<h2>CLASSES</h2>
         </div>
         <!-- /.col-lg-12 -->
     </div>
