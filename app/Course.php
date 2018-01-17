@@ -8,12 +8,8 @@ class Course extends Model
 {
     protected $table='courses';
 
-    public function cityCourses()
-    {
-	return $this->hasMany('App\CityCourse','course_id','id');
-    }
     public function classes()
     {
-        return $this->hasManyThrough('App\Class1','App\CityCourse','course_id', 'cityCourse_id','id');
+	return $this->hasMany('App\Class1','course_id','id');
     }
 }

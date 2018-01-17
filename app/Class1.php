@@ -18,9 +18,12 @@ class Class1 extends Model
     {
     	return $this->belongsTo('App\Speaker','speaker_id','id');
     }
-
-    public function cityCourses()
+    public function city()
     {
-        return $this->belongsTo('App\CityCourse','cityCourse_id','id');
+        return $this->belongsTo('App\City','city_id','id');
+    }
+    public function course()
+    {
+        return $this->belongsTo('App\Course','course_id','id');
     }
 }

@@ -6,7 +6,6 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!--IE Compatibility Meta-->
-    <meta name="author" content="zytheme" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="description" content="Landing page html5 template">
     <link rel="icon" href="{{('assets/images/logo/logo.ico')}}" type="image/x-icon">

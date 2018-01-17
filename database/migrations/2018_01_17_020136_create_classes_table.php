@@ -20,13 +20,17 @@ class CreateClassesTable extends Migration
             $table->date('start_date');
             $table->date('end_date');
             $table->string('description',300);
+            $table->string('description_en',300)->nullable();
 
             $table->integer('speaker_id')->unsigned()->nullable();
             $table->foreign('speaker_id')->references('id')->on('speakers');
 
-            $table->integer('cityCourse_id')->unsigned()->nullable();
-            $table->foreign('cityCourse_id')->references('id')->on('cityCourses');
-
+            $table->integer('city_id')->unsigned()->nullable();
+            $table->foreign('city_id')->references('id')->on('cities');
+            
+            $table->integer('course_id')->unsigned()->nullable();
+            $table->foreign('course_id')->references('id')->on('courses');
+            
             $table->timestamps();
         });
     }

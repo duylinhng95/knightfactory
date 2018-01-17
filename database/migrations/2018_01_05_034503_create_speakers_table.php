@@ -18,6 +18,7 @@ class CreateSpeakersTable extends Migration
             $table->string('name');
             $table->string('avatar');
             $table->longText('description');
+            $table->longText('description_en')->nullable();
             $table->timestamps();
         });
     }
