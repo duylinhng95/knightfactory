@@ -2,7 +2,7 @@
 @section('content')
 	<div class="row">
         <div class="col-lg-12">
-            	<h2 style = "text-align: center;">CLASSES</h2>
+            	<h2>CLASSES</h2>
         </div>
         <!-- /.col-lg-12 -->
     </div>
@@ -20,7 +20,7 @@
                             <tr>
                                 <th>#</th>
                                 <th>Name</th>
-                                <th>City</th>
+                                <th>Branch</th>
 								<th>Course</th>
                                 <th>Speaker</th>
                                 <th>Start date</th>
@@ -39,8 +39,8 @@
                             	<td>{{$class->speaker->name}}</td>
                             	<td>{{$class->start_date}}</td>
                             	<td>{{$class->end_date}}</td>
-                                <td class="center"><a href="#"><span class="glyphicon glyphicon-edit"></span></a></td>
-                                <td class="center"><a href="#" onclick="return confirm('Are you sure ?');"><span class="glyphicon glyphicon-trash"></span></a></td>
+                                <td class="center"><a href="{{ url('administrator/class/edit/'.$class->id) }}"><span class="glyphicon glyphicon-edit"></span></a></td>
+                                <td class="center"><a href="{{ url('administrator/class/delete/'.$class->id) }}" onclick="return confirm('Are you sure ?');"><span class="glyphicon glyphicon-trash"></span></a></td>
                             </tr>
 							@endforeach
                         </tbody>

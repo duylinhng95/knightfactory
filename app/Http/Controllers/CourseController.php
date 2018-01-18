@@ -156,7 +156,6 @@ class CourseController extends Controller
     {
         $deleteCourse = Course::find($id);
         $deleteCourse->classes()->delete();
-        $deleteCourse->cityCourses()->delete();
         $oldfile=public_path('admin/images/course/').$deleteCourse->image;
         unlink($oldfile);
         $deleteCourse ->delete();

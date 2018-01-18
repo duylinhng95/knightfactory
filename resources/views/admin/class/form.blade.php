@@ -1,18 +1,9 @@
 {!!csrf_field()!!}
-<div class="form-group">
-    {!! Form::label('category', 'Name of category') !!}
-    <div class="form-controls {{ $errors->has('category') ? 'has-error' : '' }}">
-        {!! Form::text('category',$category->name, ['class'=>'form-control', 'disabled' => 'disabled']) !!}
-        @if ( $errors->has('category') )
-            <span style="color: red;" class="text-warning">
-                <strong> {{ $errors->first('category') }} </strong>
-            </span>
-        @endif
-    </div>
+
 <div class="form-group">
     {!! Form::label('course_id', 'Name of course') !!}
     <div class="form-controls {{ $errors->has('course') ? 'has-error' : '' }}">
-        {!! Form::text('course_id',$course->name, ['class'=>'form-control', 'disabled' => 'disabled']) !!}
+        {!! Form::select('course_id', $courses,null, ['placeholder'=>'Select']) !!}
         @if ( $errors->has('course_id') )
             <span style="color: red;" class="text-warning">
                 <strong> {{ $errors->first('course_id') }} </strong>
@@ -23,7 +14,7 @@
 <div class="form-group">
     {!! Form::label('speaker_id', 'Name of speaker') !!}
     <div class="form-controls {{ $errors->has('speaker_id') ? 'has-error' : '' }}">
-        {!! Form::select('speaker_id',$speakers,null,['placeholder'=>'Select'])!!}<br>
+        {!! Form::select('speaker_id', $speakers,null,['placeholder'=>'Select'])!!}
         @if ( $errors->has('speaker_id') )
             <span style="color: red;" class="text-warning">
                 <strong> {{ $errors->first('speaker_id') }} </strong>
@@ -33,7 +24,7 @@
 </div>
 
 <div class="form-group">
-    {!! Form::label('city_id', 'Name of city') !!}
+    {!! Form::label('city_id', 'Branch') !!}
     <div class="form-controls {{ $errors->has('city_id') ? 'has-error' : '' }}">
         {!! Form::select('city_id', $cities,null,['placeholder'=>'Select']) !!}<br>
         @if ( $errors->has('city_id') )

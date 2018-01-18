@@ -58,15 +58,15 @@ class SpeakerController extends Controller
          Toastr::success('Edit successful Speaker', $title = null, $options = []);
     	return redirect('administrator/speaker');
     }
-    public function deleteSpeaker(Speaker $speaker)
-    {
-        if (file_exists(public_path('admin/images/speaker/avatar/').$speaker->avatar))
-        {
-            $oldfile=public_path('admin/images/speaker/avatar/').$speaker->avatar;
-            unlink($oldfile);
-        }
-    	$speaker->delete();
-         Toastr::success('Delete successful Speaker', $title = null, $options = []);
-    	return redirect('administrator/speaker');
-    }
+    // public function deleteSpeaker(Speaker $speaker)
+    // {
+    //     if (file_exists(public_path('admin/images/speaker/avatar/').$speaker->avatar))
+    //     {
+    //         $oldfile=public_path('admin/images/speaker/avatar/').$speaker->avatar;
+    //         unlink($oldfile);
+    //     }
+    // 	$speaker->delete();
+    //      Toastr::success('Delete successful Speaker', $title = null, $options = []);
+    // 	return redirect('administrator/speaker');
+    // }
 }
