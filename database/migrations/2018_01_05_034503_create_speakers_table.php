@@ -16,6 +16,7 @@ class CreateSpeakersTable extends Migration
         Schema::create('speakers', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
+            $table->string('name_en')->nullable();
             $table->string('avatar');
             $table->longText('description');
             $table->longText('description_en')->nullable();

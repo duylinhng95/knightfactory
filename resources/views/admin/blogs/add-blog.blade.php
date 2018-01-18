@@ -16,7 +16,7 @@
                                 {!!csrf_field()!!}
                                 <div class="col-lg-4">
                                     <div class="form-group">
-                                        <label>Title</label>
+                                        <label>Title(vi)</label>
                                         <input type="text" name="title" id="title" class="form-control" value="{{old('title')}}">
                                     </div>
                                     @if ($errors->has('title'))
@@ -24,6 +24,7 @@
                                               <strong>{{ $errors->first('title') }}</strong>
                                           </span>
                                      @endif
+                                     
                                     <div class="form-group">
                                         <label>Thumbnail</label>
                                         <input type="file" id="thumbnail1" name="thumbnail" value="{{old('thumbnail')}}"><br>
