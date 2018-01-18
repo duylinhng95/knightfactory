@@ -16,8 +16,10 @@ class CreateCitiesTable extends Migration
         Schema::create('cities', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
+            $table->string('name_en')->nullable();
             $table->string('alias');
             $table->string('address');
+            $table->string('address_en')->nullable();
             $table->string('image');
             $table->string('description');
             $table->string('description_en')->nullable();

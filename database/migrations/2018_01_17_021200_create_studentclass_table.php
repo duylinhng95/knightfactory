@@ -21,7 +21,7 @@ class CreateStudentclassTable extends Migration
 
             $table->integer('class_id')->unsigned()->nullable();
             $table->foreign('class_id')->references('id')->on('classes');
-            
+
             $table->timestamps();
         });
     }
