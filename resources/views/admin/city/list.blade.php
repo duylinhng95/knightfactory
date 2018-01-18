@@ -36,7 +36,7 @@
                             	<td><img  style="width: 70px; height: 50px;" src="{{asset('admin/images/city/image/'.$city->image)}}"></td>
                             	<td>{{ $city ->description }}</td>
                                 <td class="center"><a href="{{ url('administrator/city/edit/'.$city->id) }}"><span class="glyphicon glyphicon-edit"></span></a></td>
-                                <td class="center"><a href="{{ url('administrator/city/delete/'.$city->id) }}" onclick="return confirm('Are you sure ?');"><span class="glyphicon glyphicon-trash"></span></a></td>
+                                <td class="center"><a href="{{ url('administrator/city/delete/'.$city->id) }}" onclick="return confirm('Are you sure you want to delete the selected department? This action will also remove all its classes. ?');"><span class="glyphicon glyphicon-trash"></span></a></td>
                             </tr>
                             @endforeach
                         </tbody>

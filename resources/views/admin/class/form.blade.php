@@ -3,7 +3,7 @@
 <div class="form-group">
     {!! Form::label('course_id', 'Name of course') !!}
     <div class="form-controls {{ $errors->has('course') ? 'has-error' : '' }}">
-        {!! Form::select('course_id', $course,null, ['placeholder'=>'Select']) !!}
+        {!! Form::select('course_id', $courses,null, ['placeholder'=>'Select']) !!}
         @if ( $errors->has('course_id') )
             <span style="color: red;" class="text-warning">
                 <strong> {{ $errors->first('course_id') }} </strong>
