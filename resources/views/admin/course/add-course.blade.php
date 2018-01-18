@@ -38,7 +38,7 @@
                                     <div class="form-group">
                                         <label>Image</label>
                                         <input type="file" id="image1" name="image" value="{{old('image')}}"><br>
-                                        <img alt="no image" id="image" style="width: 100px; height: 100px;">
+                                        <img alt="" id="thumbnail" style="width: 100px; height: 100px;">
                                     </div>
                                     @if ($errors->has('image'))
                                           <span class="help-block" style="color:red;">
