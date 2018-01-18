@@ -24,9 +24,9 @@
 <div class="form-group">
     {!! Form::label('description','Description of Branch') !!}
     <div class="form-controls {{$errors->has('description') ? 'has-error' : ''}}">
-        {!! Form::text('description',null,['class'=>'form-control']) !!}
+        {!! Form::textarea('description',null,['class'=>'form-control']) !!}
         @if( $errors->has('description'))
-            <span class="text-warning">
+            <span style="color: red;" class="text-warning">
                 <strong>{{$errors->first('description')}}</strong>
             </span>
         @endif
@@ -38,7 +38,7 @@
         {!! Form::file('image',null,['class'=>'form-control', 'id' => 'image']) !!}<br>
         <img @if(isset($city)) src="{{asset('admin/images/city/image/'.$city->image)}}"  @endif alt="" id="image1" style="width: 100px; height: 100px;">
         @if ($errors->has('image'))
-            <span class="text-warning">
+            <span style="color: red;" class="text-warning">
                 <strong> {{ $errors->first('image') }}</strong>
             </span>
         @endif

@@ -13,7 +13,7 @@
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-lg-7">
-                            {!! Form::open(['url'=>'administrator/class/add'.$course->id]) !!}
+                            {!! Form::open(['url'=>'administrator/class/add']) !!}
                                 @include('admin.class.form')
                             {!! Form::close() !!}
                         </div>

@@ -84,6 +84,7 @@ class CityController extends Controller
     {
         $oldfile=public_path('admin/images/city/image/').$city->image;
         unlink($oldfile);
+        $city->classes()->delete();
         $city->delete();
         Toastr::success('Delete successful City', $title = null, $options = []);
         return redirect('administrator/city');
