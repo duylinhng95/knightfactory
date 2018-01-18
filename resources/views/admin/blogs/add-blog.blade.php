@@ -24,7 +24,6 @@
                                               <strong>{{ $errors->first('title') }}</strong>
                                           </span>
                                      @endif
-                                     
                                     <div class="form-group">
                                         <label>Thumbnail</label>
                                         <input type="file" id="thumbnail1" name="thumbnail" value="{{old('thumbnail')}}"><br>
