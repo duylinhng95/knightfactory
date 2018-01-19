@@ -3,7 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use App\Category;
+use App\City;
 use Illuminate\Support\Facades\View;
 
 class AppServiceProvider extends ServiceProvider
@@ -16,10 +16,10 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         \Schema::defaultStringLength(191);
-        if (\Schema::hasTable('categories'))
+        if (\Schema::hasTable('cities'))
         {
-           $categories = Category::all();
-           View::share('categories', $categories);
+           $cities = City::all();
+           View::share('cities', $cities);
        }
     }
 

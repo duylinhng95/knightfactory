@@ -56,6 +56,7 @@ Route::group(['prefix'=>'administrator'], function (){
         Route::get('edit-course/{id}', 'CourseController@edit');
         Route::post('update-course/{id}', 'CourseController@update');
         Route::get('delete-course/{id}', 'CourseController@destroy');
+        Route::get('/{course}/{city}', 'CourseController@listclass_is_course');
     });
     Route::group(['prefix'=>'user'],function(){
         Route::get('/', 'UserController@index')->name('list-users');
@@ -65,6 +66,7 @@ Route::group(['prefix'=>'administrator'], function (){
     });
     Route::group(['prefix'=>'city'],function(){
         Route::get('/', 'CityController@listCity');
+        Route::get('/{id}', 'CityController@listCourse_is_City');
         Route::get('/add', 'CityController@getAddCity');
         Route::post('/add', 'CityController@postAddCity');
         Route::get('/edit/{city}', 'CityController@getEditCity');
