@@ -13,4 +13,8 @@ class City extends Model
     {
     	return $this->hasMany('App\Class1','city_id','id');
     }
+	public function courses()
+    {
+        return $this->hasManyThrough('App\Course','App\Class1','city_id','id');
+    }
 }

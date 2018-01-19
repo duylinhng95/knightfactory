@@ -198,8 +198,8 @@ form {
 }
 
 section {
-	padding-top: 100px;
-	padding-bottom: 100px;
+	padding-top: 20px;
+	padding-bottom: 20px;
 	overflow: hidden;
 }
 
@@ -2790,7 +2790,7 @@ footer {
     #HEADING
 \*------------------------------------*/
 .heading {
-	margin-bottom: 77px;
+	margin-bottom: 30px;
 }
 
 .heading h2 {
@@ -3192,7 +3192,7 @@ footer {
 /* testimonials #4 */
 .testimonials-4 .testimonial-panel {
 	position: relative;
-	padding-top: 100px;
+	padding-top: 50px;
 }
 
 .testimonials-4 .testimonial-icon {
@@ -3201,7 +3201,7 @@ footer {
 	margin-bottom: 45px;
 	color: #2c3e50;
 	position: absolute;
-	top: 100px;
+	top: 35px;
 	left: 0;
 }
 
@@ -4638,7 +4638,8 @@ li a:hover,
 }
 
 .blog .entry .entry-content {
-	padding: 35px 35px 28px 35px;
+	padding: 10px;
+	text-align: center;
 }
 
 .blog .entry .entry-content .entry-meta {
@@ -5435,22 +5436,22 @@ form button {
         background-color: #1bc5b3;
         cursor: pointer;
     }
-.mn_category{
+.mn_city{
 	position: relative;
 }
-.mn_list_category{
+.mn_list_city{
 	position: absolute;
     top: 80px;
-    background: rgba(216, 209, 209, 0.8);
-	min-width: 100%;
+    background: rgba(216, 209, 209, 1);
+	width: 140px;
 }
-.mn_category ul>li {
+.mn_city ul>li {
     display: none;
     width: 100%;
     padding-top: 5px;
 	border-bottom: 1px solid;
 }
-.mn_category:hover ul>li{
+.mn_city:hover ul>li{
 	display: block;
 }
 .navbar-nav li a {
@@ -5463,4 +5464,17 @@ form button {
 }
 .navbar-nav li a:hover {
     color: red !important;
+}
+.img-panel{
+	position: relative;
+}
+.branch_name{
+	position: absolute;
+	width: 100%;
+    text-align: center;
+	bottom: 0px;
+
+}
+.owl-controls{
+	display: none !important;
 }

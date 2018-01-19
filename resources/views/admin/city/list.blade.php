@@ -31,7 +31,7 @@
                             @foreach($cities as $index=>$city)
                             <tr class="odd gradeX">
                             	<td>{{$index+1}}</td>
-                            	<td><a href="#">{{ $city ->name }}</a></td>
+                            	<td><a href="{{url('administrator/city')}}/{{$city->id}}">{{ $city ->name }}</a></td>
                             	<td>{{ $city ->address }}</td>
                             	<td><img  style="width: 70px; height: 50px;" src="{{asset('admin/images/city/image/'.$city->image)}}"></td>
                             	<td>{{ $city ->description }}</td>

@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Artisan;
 use App\Category;
 use App\Course;
+use App\Class1;
+use App\City;
 use Toastr;
 
 class CourseController extends Controller
@@ -161,5 +163,11 @@ class CourseController extends Controller
         $deleteCourse ->delete();
         Toastr::success('Delete successful Course', $title = null, $options = []);
         return redirect()->route('list-courses');
+    }
+    public function listclass_is_course(Course $course, City $city ){
+        $classes = Class1::where('course_id',$course->id)
+            ->where('city_id', $city->id)
+            ->orderBy('id', 'desc')->get();
+        return view('admin.class.list', compact('classes'));
     }
 }
