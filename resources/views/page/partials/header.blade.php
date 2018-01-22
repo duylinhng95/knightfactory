@@ -33,11 +33,16 @@
                      </li>
                     <li>
                         <a data-scroll="scrollTo" href="#speker_id">Speakers</a>
-                    </li>z
-
+                    </li>
+                    @if(Session::has('student'))
+                    <li>
+                        <a href="{{route('logout-student')}}">Sign out</a>
+                    </li>
+                    @else
                     <li>
                         <a href="login.php" class="overlayLink" data-action="login-form.html">Sign in</a>
                     </li>
+                    @endif                                        
                 </ul>
             </div>
             <!-- /.navbar-collapse -->

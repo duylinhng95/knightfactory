@@ -14,7 +14,8 @@ Route::get('/', 'PageController@getIndex');
 Route::group(['prefix'=>'student'],function(){
     Route::get('/register','StudentController@addStudent');
     Route::post('/save','StudentController@saveStudent');
-    Route::post('login', 'LoginStudentController@LoginStudent');
+    Route::post('login', 'StudentController@LoginStudent');
+    Route::get('logout','StudentController@LogoutStudent')->name('logout-student');
 });
 
 //Administrator
