@@ -57,7 +57,7 @@ class StudentController extends Controller
 	{
 		$data = $request->all();
 		$studentlogin= Student::where('email','=',$data['email'])->where('password','=',$data['password'])->get();
-			       View::share('studentlogin',$studentlogin);
-			return redirect("/");
+		View::share('studentlogin',$studentlogin);
+		return redirect("/");
 	}
 }

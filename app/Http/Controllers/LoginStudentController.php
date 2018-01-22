@@ -23,7 +23,7 @@ class LoginStudentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function LoginStudent(Request $rq)
+    public function loginStudent(Request $rq)
     {
         $this->validate($rq,
         [
