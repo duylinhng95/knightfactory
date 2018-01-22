@@ -5,7 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use App\City;
+use App\Course;
+use App\Class1;
 use Toastr;
+use Illuminate\Support\Collection;
 
 class CityController extends Controller
 {
@@ -78,6 +81,17 @@ class CityController extends Controller
         $city ->update($data);
         Toastr::success('Edit successful Category', $title = null, $options = []);
         return redirect('administrator/city');
+    }
+    public function listCourse_is_City($id){
+        $classes = Class1::where('city_id',$id)->get();
+        $courses= collect(null);
+        foreach($classes as $class){
+            $course = $class->course;
+            $courses->push($course);
+        }
+        $courses=$courses->unique();
+        $id_city = $id;
+        return view('admin.course.index', compact('courses', 'id_city'));
     }
 
     public function deleteCity(City $city)

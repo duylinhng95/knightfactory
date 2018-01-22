@@ -152,7 +152,7 @@
             },
             srcAction: 'iframe_src',
         }
-    });   
+    });
 
     /* ------------------ GALLERY CAROUSEL ------------------ */
 
@@ -252,7 +252,7 @@
             });
         });
     }
-	
+
     $portfolioFilter.find("a").click(function(e) {
         e.preventDefault();
         var $selector = $(this).attr("data-filter");
@@ -275,7 +275,7 @@
     var $testimonialCarousel2 = $("#testimonial-carousel"),
         $testimonialSlide = $("#testimonial-slider"),
 		$deviceSlide = $(".device-carousel");
-		
+
     $testimonialCarousel2.owlCarousel({
         thumbs: true,
         thumbsPrerendered: true,
@@ -319,7 +319,7 @@
             }
         }
     });
-	
+
     $deviceSlide.owlCarousel({
         thumbs: true,
         thumbsPrerendered: true,
@@ -397,7 +397,7 @@
     });
 
     /* ------------------ Qnatity of Devices ------------------ */
-	
+
 	 $('.add-num').on('click', function() {
         var $qty = $("#pices");
         var currentVal = parseInt($qty.val());
@@ -405,7 +405,7 @@
             $qty.val(currentVal + 1);
         }
     });
-	
+
     $('.minus-num').on('click', function() {
         var $qty = $("#pices");
         var currentVal = parseInt($qty.val());

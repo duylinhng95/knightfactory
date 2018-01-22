@@ -18,17 +18,22 @@
             <div class="collapse navbar-collapse pull-right" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-left">
                     <li class="active">
-                        <a data-scroll="scrollTo" href="#hero">home</a>
+                        <a data-scroll="scrollTo" href="#home_id">home</a>
                     </li>
                     <li>
-                        <a data-scroll="scrollTo" href="#featured5">About us</a>
+                        <a data-scroll="scrollTo" href="#aboutus_id">About us</a>
                     </li>
+                    <li class="mn_city">
+                         <a data-scroll="scrollTo" href="#branch_id" >Branch</a>
+                         <ul class="mn_list_city">
+                             @foreach($cities as $city)
+                                 <li style="boder-bottom: 1px solid black;"><a href="#">{{$city->name}}</a></li>
+                             @endforeach
+                         </ul>
+                     </li>
                     <li>
-                        <a data-scroll="scrollTo" href="#portfolio2">Courses</a>
-                    </li>
-                    <li>
-                        <a data-scroll="scrollTo" href="#testimonials4">Speakers</a>
-                    </li>
+                        <a data-scroll="scrollTo" href="#speker_id">Speakers</a>
+                    </li>z
                     @isset($studentlogin)
                         <li><p>Hello</p></li>
                     @endisset
