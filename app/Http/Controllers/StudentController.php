@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use App\Http\Requests\StudentRequest;
 use App\Http\Requests\editStudentRequest;
+use Illuminate\Support\Facades\View;
 use App\Student;
 use Toastr;
 
@@ -50,5 +51,13 @@ class StudentController extends Controller
 		$student->delete();
 		Toastr::success('Student is deleted',$title=null,$option=[]);
 		return redirect('administrator/student');
+	}
+	//PAGE login
+	public function loginStudent(Request $request)
+	{
+		$data = $request->all();
+		$studentlogin= Student::where('email','=',$data['email'])->where('password','=',$data['password'])->get();
+			       View::share('studentlogin',$studentlogin);
+			return redirect("/");
 	}
 }

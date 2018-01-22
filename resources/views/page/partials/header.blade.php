@@ -29,10 +29,14 @@
                     <li>
                         <a data-scroll="scrollTo" href="#testimonials4">Speakers</a>
                     </li>
-
+                    @isset($studentlogin)
+                        <li><p>Hello</p></li>
+                    @endisset
+                    @empty($studentlogin)
                     <li>
                         <a href="login.php" class="overlayLink" data-action="login-form.html">Sign in</a>
                     </li>
+                    @endempty
                 </ul>
             </div>
             <!-- /.navbar-collapse -->

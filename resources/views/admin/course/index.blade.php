@@ -2,7 +2,7 @@
 @section('content')
 <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header">@if(isset($category)) {{$category->name}} course @else Course @endif</h1>
+            <h1 class="page-header">@if(isset($category)) {{$category->name}} course @else Courses @endif</h1>
         </div>
         <!-- /.col-lg-12 -->
     </div>
