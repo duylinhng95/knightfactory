@@ -10,7 +10,7 @@
                 <span class="icon-bar"></span>
                 </button>
                 <a class="logo" href="index.html">
-                    <img src="{{asset('assets/images/logo/logo.png')}}" alt="Interact">
+                    <img src="{{asset('assets/images/logo/logo.png')}}" alt="logo KF">
                 </a>
             </div>
 
@@ -27,13 +27,13 @@
                          <a data-scroll="scrollTo" href="#branch_id" >Branch</a>
                          <ul class="mn_list_city">
                              @foreach($cities as $city)
-                                 <li style="boder-bottom: 1px solid black;"><a href="#">{{$city->name}}</a></li>
+                                 <li style="boder-bottom: 1px solid black;"><a href="{{ url('listcourse_is_branch')}}/{{$city->id}}">{{$city->name}}</a></li>
                              @endforeach
                          </ul>
                      </li>
                     <li>
                         <a data-scroll="scrollTo" href="#speker_id">Speakers</a>
-                    </li>z
+                    </li>
 
                     <li>
                         <a href="login.php" class="overlayLink" data-action="login-form.html">Sign in</a>
