@@ -3,6 +3,9 @@
         <div class="login-content">
             <a class="close">x</a>
             <h3>Sign in</h3>
+            @if(isset($error))
+            <p><strong>{{$error}}</strong></p>
+            @endif
             <form action="{{url('student/login')}}" method="post">
                 {!!csrf_field()!!}
                 <label for="username">

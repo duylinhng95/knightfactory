@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Input;
 use App\Http\Requests\StudentRequest;
 use App\Http\Requests\editStudentRequest;
 use App\Student;
+use Session;
 use Toastr;
 
 class StudentController extends Controller
@@ -50,5 +51,24 @@ class StudentController extends Controller
 		$student->delete();
 		Toastr::success('Student is deleted',$title=null,$option=[]);
 		return redirect('administrator/student');
+	}
+	public function loginStudent(Request $request)
+	{
+		$data=$request->all();
+		$studentlogin=Student::where('email',$data['email'])->where('password',$data['password'])->get();
+		if (count($studentlogin)) {
+			Session::put('student',$studentlogin);
+			return redirect("/");
+		}
+		else
+		{
+			$error="Vui lòng nhập lại Email hoặc Mật khẩu";
+			return redirect("/")->with($error);			
+		}		
+	}
+	public function logoutStudent()
+	{
+		Session::flush();
+		return redirect("/");
 	}
 }
