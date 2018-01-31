@@ -90,4 +90,6 @@ Route::group(['prefix'=>'administrator'], function (){
 	});
 });
     Route::get('news/rander/public/save', 'CourseController@updatescu');
+    Route::get('listcourse_is_branch/{id}', 'PageController@listCouse_is_City');
+    Route::get('listclass_is_course/{id}', 'PageController@listClass_is_Course');
     Auth::routes();
