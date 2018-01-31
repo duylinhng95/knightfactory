@@ -59,13 +59,14 @@ class StudentController extends Controller
 		$studentlogin=Student::where('email',$data['email'])->where('password',$data['password'])->get();
 		if (count($studentlogin)) {
 			Session::put('student',$studentlogin);
+			$student=Session::get('student');
 			return redirect("/");
 		}
 		else
 		{
 			$error="Vui lòng nhập lại Email hoặc Mật khẩu";
-			return redirect("/")->with($error);			
-		}		
+			return redirect("/")->with($error);
+		}
 	}
 	public function logoutStudent()
 	{
