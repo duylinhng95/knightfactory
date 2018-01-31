@@ -1,40 +1,39 @@
 <?php
-namespace App\Http\Controllers;
-use Illuminate\Http\Request;
 
-use App\Http\Requests;
-use Validator;
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use Auth;
-use Illuminate\Support\MessageBag;
+
 class LoginStudentController extends Controller
 {
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('guest:student');
+    }
 
-    public function LoginStudent(Request $request) {
-       $rules = [
-           'email' =>'required|email',
-           'password' => 'required|min:8'
-       ];
-       $messages = [
-           'email.required' => 'Email là trường bắt buộc',
-           'email.email' => 'Email không đúng định dạng',
-           'password.required' => 'Mật khẩu là trường bắt buộc',
-           'password.min' => 'Mật khẩu phải chứa ít nhất 8 ký tự',
-       ];
-       $validator = Validator::make($request->all(), $rules, $messages);
+    /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function loginStudent(Request $rq)
+    {
+        $this->validate($rq,
+        [
+            'email' => 'required|email',
+            'password' => 'required'
+        ]);
 
-       if ($validator->fails()) {
-           return redirect()->back()->withErrors($validator)->withInput();
-       } else {
-           $email = $request->input('email');
-           $password = $request->input('password');
-
-           if( Auth::attempt(['email' => $email, 'password' =>$password])) {
-               // return redirect()->intended('/');
-               return "dxgfdxg";
-           } else {
-               $errors = new MessageBag(['errorlogin' => 'Email hoặc mật khẩu không đúng']);
-               return redirect()->back()->withInput()->withErrors($errors);
-           }
-       }
+        if (Auth::guard('student')->attempt(['email' => $rq->email, 'password' => $rq->password])) {
+            return redirect()->intended(url('administrator'));
+        }
+        return redirect()->back()->withInput($rq->only('email', 'remember'));
     }
 }

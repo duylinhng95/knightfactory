@@ -35,14 +35,28 @@
                         <a data-scroll="scrollTo" href="#speker_id">Speakers</a>
                     </li>
                     @if(Session::has('student'))
-                    <li>
-                        <a href="{{route('logout-student')}}">Sign out</a>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            Hello, <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-user">
+                            <li><a href="{{url('administrator/user/profile')}}"><i class="fa fa-user fa-fw"></i> Edit Profile</a>
+                            </li>
+                            <li><a href="{{url('administrator/user/changepass')}}"><i class="fa fa-gear fa-fw"></i> Change Password</a>
+                            </li>
+                            <li class="divider"></li>
+                            <li><a href="{{route('logout-student')}}"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                            </li>
+                        </ul>
+                        <!-- /.dropdown-user -->
                     </li>
+
+
                     @else
                     <li>
                         <a href="login.php" class="overlayLink" data-action="login-form.html">Sign in</a>
                     </li>
-                    @endif                                        
+                    @endif
                 </ul>
             </div>
             <!-- /.navbar-collapse -->

@@ -7,6 +7,7 @@ use App\Class1;
 use App\Course;
 use App\City;
 use App\Speaker;
+use App\StudentClass;
 use Toastr;
 use Illuminate\Support\Facades\Input;
 class ClassController extends Controller
@@ -86,5 +87,11 @@ class ClassController extends Controller
         $class ->delete();
         Toastr::success('Edit successful class', $title = null, $options = []);
         return redirect('administrator/class');
+    }
+
+    public function listStudentClass(Class1 $class)
+    {
+        $students = StudentClass::where('class_id', $class)->get();
+        return view('admin.class.list-student', compact('class', 'students'));
     }
 }

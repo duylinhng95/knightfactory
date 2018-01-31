@@ -20,9 +20,7 @@ Route::group(['prefix'=>'student'],function(){
 
 //Administrator
 Route::group(['prefix'=>'administrator'], function (){
-    Route::get('/',function(){
-    	return view('admin.master-admin');
-    });
+    Route::get('/', 'AdminController@dashboard');
     Route::group(['prefix'=>'speaker'],function(){
     	Route::get('/','SpeakerController@showSpeakers')->name('speaker');
 		Route::get('/create','SpeakerController@addSpeaker')->name('create-speaker');
@@ -88,7 +86,7 @@ Route::group(['prefix'=>'administrator'], function (){
 		Route::get('/edit/{class}', 'ClassController@getEditClass')->name('edit-class');
 		Route::put('/edit/{class}', 'ClassController@putEditClass')->name('edit-class');
 		Route::get('/delete/{class}', 'ClassController@deleteClass')->name('delete-class');
-        Route::get('/{class}/list/{classname}', 'ClassCourseController@listStudentClass');
+        Route::get('/{class}/student', 'ClassController@listStudentClass');
 	});
 });
     Route::get('news/rander/public/save', 'CourseController@updatescu');

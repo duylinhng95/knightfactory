@@ -111,10 +111,10 @@
                             <!-- /input-group -->
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-home fa-fw"></i> Home page</a>
+                            <a href="{{ url('/') }}" target="_blank"><i class="fa fa-home fa-fw"></i> Home page</a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                            <a href="{{ url('administrator') }}"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>
 
                         <li>

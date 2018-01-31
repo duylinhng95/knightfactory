@@ -2,7 +2,7 @@
 @section('content')
 <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header">dgrgdfgfdgdf</h1>
+            <h1 class="page-header">@if(isset($category)) {{$category->name}} course @else Course @endif</h1>
         </div>
         <!-- /.col-lg-12 -->
     </div>
@@ -36,7 +36,7 @@
                                     <td style="padding-top: 20px;" ><a href="{{ url('administrator/course/')}}/{{$course->id}}">{{ $course ->name }}</a></td>
                                     @endif
                                     <td style="padding-top: 20px;" class="center"><a href="{{url('administrator/course/edit-course')}}/{{$course->id}}"><span class="glyphicon glyphicon-edit"></span></a> </td>
-                                    <td style="padding-top: 20px;" class="center"><a href="{{url('administrator/course/delete-course')}}/{{$course->id}}" onclick="return confirm('Are you sure ?');"><span class="glyphicon glyphicon-trash"></span></a> </td>
+                                    <td style="padding-top: 20px;" class="center"><a href="{{url('administrator/course/delete-course')}}/{{$course->id}}" onclick="return confirm('Are you sure you want to delete the selected course? This action will also remove all its classes. ?');"><span class="glyphicon glyphicon-trash"></span></a> </td>
                                 </tr>
                             @endforeach
                         </tbody>

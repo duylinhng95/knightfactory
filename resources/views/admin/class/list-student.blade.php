@@ -5,6 +5,7 @@
             <h1 class="page-header">Student list of {{ $class ->name }}</h1>
             <h4><strong>Speaker:</strong> {{ $class->speaker->name }}</h4>
             <h4><strong>City:</strong> {{ $class->city->name }}</h4>
+            <h4><strong>Class Size:</strong> {{ $students->count() }}</h4>
         </div>
         <!-- /.col-lg-12 -->
     </div>
